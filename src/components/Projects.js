@@ -1,17 +1,25 @@
-.projects-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+import React from 'react';
+import Fade from 'react-reveal/Fade';
+import '../styles/Projects.css';
+
+function Projects() {
+  return (
+    <section id="projects" className="section projects">
+      <Fade bottom>
+        <h2>Projects</h2>
+        <ul className="projects-list">
+          <li>
+            <h3>Data Analysis</h3>
+            <p>Developed models using Python and R to analyze and predict educational outcomes.</p>
+          </li>
+          <li>
+            <h3>Community Software</h3>
+            <p>Led a project to develop a Java-based community resource management system.</p>
+          </li>
+        </ul>
+      </Fade>
+    </section>
+  );
 }
 
-.projects-list li {
-  background: #fff;
-  margin: 10px;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  flex: 0 1 calc(33% - 20px);
-  text-align: center;
-}
+export default Projects;
