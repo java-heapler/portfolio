@@ -7,7 +7,7 @@ function About() {
     <section id="about" className="section about">
       <Fade bottom>
         <div className="profile-photo">
-          <img src={`${process.env.PUBLIC_URL}/profile.jpg`} alt="Joe Heupler" />
+          <img src={`${process.env.PUBLIC_URL}/profile.png`} alt="Joe Heupler" />
         </div>
         <h2>About Me</h2>
         <p>
