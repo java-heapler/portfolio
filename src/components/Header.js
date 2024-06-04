@@ -4,7 +4,7 @@ import '../styles/Header.css';
 function Header() {
   return (
     <header>
-      <img src={`${process.env.PUBLIC_URL}/logo.tiff`} alt="Joe Heupler Logo" className="logo" />
+      <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="Joe Heupler Logo" className="logo" />
       <h1>Joe Heupler</h1>
       <nav>
         <a href="#about">About</a>
