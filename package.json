@@ -1,7 +1,23 @@
 {
-  "homepage": "http://java-heupler.github.io/portfolio",
+  "name": "joe-heupler-portfolio",
+  "version": "1.0.0",
+  "homepage": "https://java-heupler.github.io/portfolio",
+  "private": true,
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "react-reveal": "^1.2.2"
+  },
   "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
