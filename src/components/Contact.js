@@ -5,6 +5,9 @@ import '../styles/Contact.css';
 function Contact() {
   return (
     <section id="contact" className="section contact">
+      <div className="profile-photo">
+          <img src={`${process.env.PUBLIC_URL}/profile_standing.jpg`} alt="Joe Heupler" />
+        </div>
       <Fade bottom>
         <h2>Contact Me</h2>
         <form className="contact-form" action="https://formspree.io/f/mjvnqabv" method="POST">
