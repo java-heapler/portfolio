@@ -24,8 +24,6 @@
   color: #333;
   text-transform: uppercase;
   letter-spacing: 1px;
-  position: relative;
-  display: inline-block;
   padding-bottom: 10px;
   border-bottom: 2px solid #3498db;
   text-align: center; /* Center-aligned titles */
