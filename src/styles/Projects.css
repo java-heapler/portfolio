@@ -1,4 +1,35 @@
+/* src/styles/Projects.css */
+.section.projects {
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
 .projects-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.projects-list li {
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.projects-list h3 {
+  margin-top: 0;
+}
+
+.projects-list a {
+  color: #3498db;
+  text-decoration: none;
+
+
+/** .projects-list {
   list-style: none;
   padding: 0;
   display: flex;
@@ -14,4 +45,4 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   flex: 0 1 calc(33% - 20px);
   text-align: center;
-}
+} **/
