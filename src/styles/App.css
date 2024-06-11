@@ -1,13 +1,12 @@
-/* Container Enhancements */
+/* Container */
 .container {
   width: 80%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 50px 0;
-  text-align: center;
 }
 
-/* Section Enhancements */
+/* Section */
 .section {
   padding: 50px 0;
   border-bottom: 1px solid #e6e6e6;
@@ -18,8 +17,9 @@
   border-bottom: none;
 }
 
+/* General Titles */
 .section h2 {
-  font-size: 2.5rem;
+  font-size: 2rem; /* Smaller than before */
   margin-bottom: 30px;
   color: #333;
   text-transform: uppercase;
@@ -28,6 +28,16 @@
   display: inline-block;
   padding-bottom: 10px;
   border-bottom: 2px solid #3498db;
+  text-align: center; /* Reverted back to center alignment */
+}
+
+/* About Me Section */
+.section.about-me {
+  padding: 30px 0; /* Smaller padding */
+}
+
+.section.about-me h2 {
+  font-size: 1.75rem; /* Smaller than other sections */
 }
 
 .section:hover {
