@@ -1,33 +1,19 @@
-/* projects.css */
-.section.projects {
-  padding: 20px;
-  background-color: #f4f4f4;
-}
-
-.projects-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  list-style: none;
-  padding: 0;
-}
-
 .projects-list li {
   background: white;
-  padding: 15px;
+  padding: 20px; /* Ensure consistent padding */
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.projects-list li:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.projects-list li h3 {
+  font-size: 1.25rem;
+  margin-top: 0;
 }
 
-.projects-list h3 {
-  margin-top: 0;
-  font-size: 1.25rem;
+.projects-list p {
+  color: #333; /* Ensure text color consistency */
+  line-height: 1.6; /* Consistent line height */
 }
 
 .projects-list a {
