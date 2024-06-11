@@ -34,6 +34,13 @@
   color: #3498db;
   text-decoration: none;
   transition: color 0.3s;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: #1a1a1a;
+  color: #fff;
+  font-weight: bold;
 }
 
 .projects-list a:hover {
