@@ -1,7 +1,21 @@
 /* skills.css */
+.skills {
+  padding: 50px 0;
+  background-color: #f8f8f8;
+}
+
+.skills h2 {
+  font-size: 1.75rem;
+  margin-bottom: 30px;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
 .skills-list {
   list-style: none;
-  padding: 0;
+  padding: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -12,23 +26,31 @@
   background: #fff;
   margin: 10px;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex: 0 1 calc(33% - 20px);
+  flex: 0 1 calc(33% - 40px);
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .skills-list li img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 10px;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skills-list li span {
+  font-size: 1rem;
+  color: #333;
 }
 
 .skills-list li:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f0f8ff;
 }
