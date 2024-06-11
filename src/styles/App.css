@@ -19,7 +19,7 @@
 
 /* General Titles */
 .section h2 {
-  font-size: 2rem; /* Smaller than before */
+  font-size: 1.75rem; /* Smaller than before */
   margin-bottom: 30px;
   color: #333;
   text-transform: uppercase;
@@ -28,16 +28,26 @@
   display: inline-block;
   padding-bottom: 10px;
   border-bottom: 2px solid #3498db;
-  text-align: center; /* Reverted back to center alignment */
+  text-align: center; /* Center-aligned titles */
 }
 
-/* About Me Section */
-.section.about-me {
-  padding: 30px 0; /* Smaller padding */
+/* About Me Section - Original Style */
+.about .profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
 }
 
-.section.about-me h2 {
-  font-size: 1.75rem; /* Smaller than other sections */
+.about .profile-photo img {
+  width: 100%;
+  height: auto;
+}
+
+/* Ensure intro paragraph is left-aligned */
+.about p {
+  text-align: left;
 }
 
 .section:hover {
