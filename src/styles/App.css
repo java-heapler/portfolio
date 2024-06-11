@@ -1,12 +1,17 @@
+/* Container Enhancements */
 .container {
   width: 80%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 50px 0;
+  text-align: center;
 }
 
+/* Section Enhancements */
 .section {
   padding: 50px 0;
   border-bottom: 1px solid #e6e6e6;
+  transition: transform 0.3s, opacity 0.3s;
 }
 
 .section:last-child {
@@ -14,7 +19,18 @@
 }
 
 .section h2 {
-  text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 30px;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+}
+
+.section:hover {
+  transform: translateY(-10px);
+  opacity: 0.9;
 }
