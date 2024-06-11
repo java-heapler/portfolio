@@ -27,7 +27,11 @@
 .projects-list a {
   color: #3498db;
   text-decoration: none;
+}
 
+.projects-list a:hover {
+  text-decoration: underline;
+} 
 
 /** .projects-list {
   list-style: none;
