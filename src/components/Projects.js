@@ -22,8 +22,8 @@ const projectData = [
   { title: 'Advanced Machine Learning Techniques for Data Analysis', description: 'Applied PCA, k-means clustering, SVMs, and Kernel PCA using Python, R, and scikit-learn on datasets like MNIST for dimensionality reduction, clustering, and classification.', link: 'https://github.com/java-heapler/advanced-ml-techniques' },
   { title: 'Ensemble Methods and SVM for Advanced Data Analysis', description: 'Implemented Bagging, Boosting, SVMs, and Random Forests using Python, scikit-learn, and pandas on MNIST dataset for classification and variance reduction.', link: 'https://github.com/java-heapler/ensemble-methods-svm' },
   { title: 'Neural Network Digit Classification', description: 'Developed neural networks for digit classification using Python and NumPy, implementing perceptron, backpropagation, and RNNs for tasks including regression and language identification.', link: 'https://github.com/java-heapler/nn-digit-classification' },
-  { title: 'Neural Networks and Learning Theory Applications', description: 'Explored advanced techniques like FNNs, CNNs, Autoencoders, and GANs using Python,
-
+  { title: 'Neural Networks and Learning Theory Applications', description: 'Explored advanced techniques like FNNs, CNNs, Autoencoders, and GANs using Python, PyTorch, and scikit-learn. Analyzed datasets like CIFAR-10 and Fashion MNIST, implementing dropout and various optimizers for enhanced performance.', link: 'https://github.com/java-heapler/nn-learning-theory' }
+];
 
 function Projects() {
   return (
