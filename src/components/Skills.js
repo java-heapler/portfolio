@@ -1,62 +1,78 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
+import { 
+  FaPython, FaJava, FaReact, FaNode, FaDatabase,
+  FaAws, FaDocker, FaGitAlt
+} from 'react-icons/fa';
+import { SiTensorflow, SiScikitlearn, SiPytorch } from 'react-icons/si';
 import '../styles/Skills.css';
+
+const skillsData = [
+  {
+    category: "Languages",
+    items: [
+      { name: "Python", icon: <FaPython />, level: 95 },
+      { name: "Java", icon: <FaJava />, level: 90 },
+      { name: "JavaScript", icon: <FaReact />, level: 85 },
+    ]
+  },
+  {
+    category: "Machine Learning",
+    items: [
+      { name: "TensorFlow", icon: <SiTensorflow />, level: 90 },
+      { name: "PyTorch", icon: <SiPytorch />, level: 85 },
+      { name: "Scikit-learn", icon: <SiScikitlearn />, level: 90 },
+    ]
+  },
+  {
+    category: "Web Development",
+    items: [
+      { name: "React", icon: <FaReact />, level: 85 },
+      { name: "Node.js", icon: <FaNode />, level: 80 },
+      { name: "SQL", icon: <FaDatabase />, level: 85 },
+    ]
+  },
+  {
+    category: "DevOps",
+    items: [
+      { name: "AWS", icon: <FaAws />, level: 80 },
+      { name: "Docker", icon: <FaDocker />, level: 85 },
+      { name: "Git", icon: <FaGitAlt />, level: 90 },
+    ]
+  }
+];
 
 function Skills() {
   return (
-    <section id="skills" className="section skills">
+    <section id="skills" className="skills-section">
       <Fade bottom>
-        <h2>Skills</h2>
-        <ul className="skills-list">
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo" />
-            <span>Python</span>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" alt="Java Logo" />
-            <span>Java</span>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C/C++ Logo" />
-            <span>C/C++</span>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg" alt="Golang Logo" />
-            <span>Golang</span>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo" />
-            <span>JavaScript</span>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" alt="SQL Logo" />
-            <span>SQL</span>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML/CSS Logo" />
-            <span>HTML/CSS</span>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg" alt="Spring Boot Logo" />
-            <span>Spring Boot</span>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Flask_logo.svg" alt="Flask Logo" />
-            <span>Flask</span>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Logo" />
-            <span>React</span>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg" alt="Docker Logo" />
-            <span>Docker</span>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg" alt="Git Logo" />
-            <span>Git</span>
-          </li>
-        </ul>
+        <h2>Skills & Technologies</h2>
+        
+        <div className="skills-container">
+          {skillsData.map((category, idx) => (
+            <Fade bottom delay={idx * 200} key={idx}>
+              <div className="skill-category">
+                <h3>{category.category}</h3>
+                <div className="skills-grid">
+                  {category.items.map((skill, index) => (
+                    <div className="skill-item" key={index}>
+                      <div className="skill-icon">{skill.icon}</div>
+                      <div className="skill-info">
+                        <span className="skill-name">{skill.name}</span>
+                        <div className="skill-bar">
+                          <div 
+                            className="skill-progress"
+                            style={{ width: `${skill.level}%` }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Fade>
+          ))}
+        </div>
       </Fade>
     </section>
   );

@@ -1,64 +1,163 @@
 /* header.css */
-header {
-  background: linear-gradient(135deg, #1a1a1a, #333);
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-header img.logo {
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 60px;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-nav {
+.header {
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  margin-top: 10px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: #0a192f;
+  padding: 0 2rem;
 }
 
-nav a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 15px;
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.greeting {
+  display: block;
+  font-size: 1.5rem;
+  color: #64ffda;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.name {
+  display: block;
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: #ccd6f6;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #8892b0;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.description {
+  max-width: 600px;
+  color: #8892b0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.primary-btn, .secondary-btn {
+  padding: 1rem 2rem;
+  border-radius: 4px;
   font-size: 1rem;
-  transition: color 0.3s, transform 0.3s;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-nav a:hover {
-  color: #1e90ff;
-  transform: scale(1.1);
+.primary-btn {
+  background: #64ffda;
+  color: #0a192f;
+  border: none;
 }
 
-/* Responsive Navigation */
+.primary-btn:hover {
+  background: #4cd7b4;
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  border: 2px solid #64ffda;
+  color: #64ffda;
+  background: transparent;
+}
+
+.secondary-btn:hover {
+  background: rgba(100, 255, 218, 0.1);
+  transform: translateY(-2px);
+}
+
+.social-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.social-links a {
+  color: #8892b0;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #64ffda;
+  transform: translateY(-3px);
+}
+
+.header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.animated-gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(100, 255, 218, 0.1),
+    rgba(10, 25, 47, 0.1)
+  );
+  filter: blur(100px);
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-30%, 20%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: center;
+  .header {
+    padding: 0 1rem;
   }
 
-  nav a {
-    margin: 10px 0;
+  .name {
+    font-size: 3rem;
   }
 
-  header img.logo {
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  header h1 {
+  .title {
     font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .primary-btn, .secondary-btn {
+    text-align: center;
   }
 }
