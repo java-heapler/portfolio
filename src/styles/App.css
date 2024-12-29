@@ -1,82 +1,53 @@
 /* app.css */
 
-/* General Styles */
-body {
-  font-family: 'Arial', sans-serif;
-  color: #333;
-  background-color: #f8f8f8;
-  line-height: 1.6;
+:root {
+  --primary: #0a192f;
+  --secondary: #64ffda;
+  --text-primary: #ccd6f6;
+  --text-secondary: #8892b0;
+  --bg-light: #112240;
+  --bg-lighter: #233554;
+  --white: #e6f1ff;
+  --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* Links */
-a {
-  color: #3498db;
-  text-decoration: none;
-  transition: color 0.3s;
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--primary);
+  color: var(--text-primary);
+  line-height: 1.6;
 }
 
-a:hover {
-  color: #1e90ff;
-  text-decoration: underline;
+section {
+  padding: 100px 0;
 }
 
-/* Buttons */
-button, .btn {
-  background: #1a1a1a;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-button:hover, .btn:hover {
-  background: #1e90ff;
-  transform: translateY(-2px);
-}
-
-/* Container */
 .container {
-  width: 80%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 2rem;
 }
 
-/* Section */
-.section {
-  padding: 50px 0;
-  border-bottom: 1px solid #e6e6e6;
-  transition: transform 0.3s, opacity 0.3s;
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.section:last-child {
-  border-bottom: none;
+::-webkit-scrollbar-track {
+  background: var(--primary);
 }
 
-.section h2 {
-  font-size: 1.75rem;
-  margin-bottom: 30px;
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-align: center;
+::-webkit-scrollbar-thumb {
+  background: var(--bg-lighter);
+  border-radius: 4px;
 }
 
-.section:hover {
-  transform: translateY(-10px);
-  opacity: 0.9;
-}
-
-/* Responsive Layout */
-@media (max-width: 768px) {
-  .container {
-    width: 100%;
-    padding: 10px;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
 }

@@ -92,3 +92,54 @@
     grid-template-columns: 1fr;
   }
 }
+
+.technical-expertise {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.technical-expertise h3 {
+  color: #2d3436;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.tech-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tech-category {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tech-label {
+  min-width: 100px;
+  font-weight: 600;
+  color: #007bff;
+}
+
+.tech-items {
+  color: #2d3436;
+}
+
+@media (max-width: 768px) {
+  .tech-category {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .tech-label {
+    min-width: auto;
+  }
+}

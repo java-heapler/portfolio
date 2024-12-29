@@ -23,14 +23,15 @@ function Header() {
             </Fade>
             
             <Fade bottom delay={400}>
-              <h2 className="title">Software Engineer & ML Enthusiast</h2>
+              <h2 className="title">Software Engineer</h2>
             </Fade>
             
             <Fade bottom delay={600}>
               <p className="description">
-                UC Berkeley graduate in Data Science & Cognitive Science, passionate about 
-                developing innovative solutions in machine learning and full-stack development. 
-                Specialized in Java, Python, and C/C++.
+                Full-stack developer and UC Berkeley graduate specializing in scalable 
+                applications, cloud architecture, and data-driven solutions. 
+                Experienced in building robust backend systems and deploying 
+                production-ready applications with modern DevOps practices.
               </p>
             </Fade>
 
@@ -58,7 +59,11 @@ function Header() {
 
           <div className="header-image">
             <Fade right delay={600}>
-              <img src="/path/to/your/profile-photo.jpg" alt="Joseph Heupler" className="profile-image" />
+              <img 
+                src={`${process.env.PUBLIC_URL}/profile.jpg`} 
+                alt="Joseph Heupler" 
+                className="profile-image" 
+              />
             </Fade>
           </div>
         </div>
