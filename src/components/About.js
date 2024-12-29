@@ -4,24 +4,42 @@ import '../styles/About.css';
 
 function About() {
   return (
-    <section id="about" className="section about">
+    <section id="about" className="about-section">
       <Fade bottom>
-        <div className="profile-photo">
-          <img src={`${process.env.PUBLIC_URL}/profile.jpg`} alt="Joe Heupler" />
-        </div>
         <h2>About Me</h2>
-        <p>
-        <h3>👋 Hello there! </h3>
-        <br></br>
-        My name is Joe Heupler, and I recently received my dual degree in computer science and cognitive science from UC Berkeley. 
-        <br></br>
-        My technical career started at Pasadena City College, where I developed my engineering and natural science skills and laid the groundwork for my love of coding and problem-solving.
-        I have experience with a wide range of libraries and frameworks, including Spring Boot, Flask, React, and more. I am skilled in Python, Java, C, C++, and JavaScript. 
-        <br></br>
-        I love getting down and dirty with code, especially when it comes to constructing RESTful APIs or threading in Python, and coming up with meaningful solutions.
-        Using Python and R, I developed models to predict educational outcomes for one of my favorite projects. Leading a Java-based community resource management system was another highlight that emphasized how technology can be used to strengthen communities.
-        I'm searching for my first software engineering full-time position right now. Please get in touch if you're enthusiastic about cutting-edge digital solutions and would want to work together. Together, let's create something incredible! 🚀
-        </p>
+        
+        <div className="about-content">
+          <div className="about-text">
+            <p>
+              As a UC Berkeley graduate with degrees in Data Science and Cognitive Science, 
+              I bring a unique perspective to software development that combines technical expertise 
+              with an understanding of human behavior and cognition.
+            </p>
+            
+            <p>
+              My journey in tech has been driven by a fascination with how data structures, 
+              particularly heaps, can optimize real-world applications. This interest has led me 
+              to develop numerous projects spanning from machine learning applications to 
+              full-stack web solutions.
+            </p>
+
+            <p>
+              When I'm not coding, I enjoy diving deep into heap memory management and optimization, 
+              treating each performance challenge like a puzzle waiting to be solved. I'm particularly 
+              passionate about creating scalable solutions that make a meaningful impact.
+            </p>
+
+            <div className="key-interests">
+              <h3>Key Areas of Interest:</h3>
+              <ul>
+                <li>Machine Learning & AI Applications</li>
+                <li>Data Structure Optimization</li>
+                <li>Full-Stack Development</li>
+                <li>Memory Management & Performance Tuning</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </Fade>
     </section>
   );
