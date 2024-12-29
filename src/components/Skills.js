@@ -4,40 +4,35 @@ import {
   FaPython, FaJava, FaReact, FaNode, FaDatabase,
   FaAws, FaDocker, FaGitAlt
 } from 'react-icons/fa';
-import { SiTensorflow, SiScikitlearn, SiPytorch } from 'react-icons/si';
+import { SiTensorflow, SiScikitlearn, SiPytorch, SiCplusplus, SiSpring, SiFlask, SiMongodb } from 'react-icons/si';
 import '../styles/Skills.css';
 
 const skillsData = [
   {
-    category: "Languages",
+    category: "Core Languages",
     items: [
       { name: "Python", icon: <FaPython />, level: 95 },
       { name: "Java", icon: <FaJava />, level: 90 },
       { name: "JavaScript", icon: <FaReact />, level: 85 },
+      { name: "C/C++", icon: <SiCplusplus />, level: 80 },
     ]
   },
   {
-    category: "Machine Learning",
+    category: "Technologies & Frameworks",
     items: [
-      { name: "TensorFlow", icon: <SiTensorflow />, level: 90 },
-      { name: "PyTorch", icon: <SiPytorch />, level: 85 },
-      { name: "Scikit-learn", icon: <SiScikitlearn />, level: 90 },
-    ]
-  },
-  {
-    category: "Web Development",
-    items: [
+      { name: "Spring Boot", icon: <SiSpring />, level: 85 },
       { name: "React", icon: <FaReact />, level: 85 },
-      { name: "Node.js", icon: <FaNode />, level: 80 },
-      { name: "SQL", icon: <FaDatabase />, level: 85 },
+      { name: "TensorFlow", icon: <SiTensorflow />, level: 90 },
+      { name: "Flask", icon: <SiFlask />, level: 85 },
     ]
   },
   {
-    category: "DevOps",
+    category: "Infrastructure & Tools",
     items: [
       { name: "AWS", icon: <FaAws />, level: 80 },
       { name: "Docker", icon: <FaDocker />, level: 85 },
       { name: "Git", icon: <FaGitAlt />, level: 90 },
+      { name: "MongoDB", icon: <SiMongodb />, level: 85 },
     ]
   }
 ];

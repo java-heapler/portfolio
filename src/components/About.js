@@ -35,39 +35,11 @@ function About() {
             <div className="key-interests">
               <h3>Technical Focus Areas:</h3>
               <ul>
-                <li>Backend Development & API Design</li>
-                <li>Cloud Architecture & DevOps</li>
-                <li>Data Engineering & Analytics</li>
-                <li>Distributed Systems</li>
+                <li>Backend Development & System Architecture</li>
+                <li>Cloud Infrastructure & DevOps</li>
+                <li>Machine Learning & Data Engineering</li>
                 <li>Full-Stack Development</li>
-                <li>System Optimization</li>
               </ul>
-            </div>
-
-            <div className="technical-expertise">
-              <h3>Core Technologies:</h3>
-              <div className="tech-stack">
-                <div className="tech-category">
-                  <span className="tech-label">Languages:</span>
-                  <span className="tech-items">Java, Python, JavaScript, C/C++</span>
-                </div>
-                <div className="tech-category">
-                  <span className="tech-label">Backend:</span>
-                  <span className="tech-items">Spring Boot, Flask, Node.js, RESTful APIs</span>
-                </div>
-                <div className="tech-category">
-                  <span className="tech-label">Frontend:</span>
-                  <span className="tech-items">React, HTML5, CSS3, Material-UI</span>
-                </div>
-                <div className="tech-category">
-                  <span className="tech-label">DevOps:</span>
-                  <span className="tech-items">AWS, Docker, Git, CI/CD</span>
-                </div>
-                <div className="tech-category">
-                  <span className="tech-label">Data:</span>
-                  <span className="tech-items">SQL, MongoDB, Redis, Data Processing</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
