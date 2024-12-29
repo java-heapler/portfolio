@@ -14,6 +14,12 @@ const categories = [
 ];
 
 const projectData = [
+  {
+    title: 'Modern React Portfolio Website',
+    description: 'Engineered a responsive single-page application using React and modern JavaScript. Implemented custom animations, dynamic content filtering, and responsive design principles. Features include component-based architecture, state management, and seamless user experience with CSS transitions and Intersection Observer API.',
+    link: 'https://github.com/java-heapler/portfolio',
+    categories: ['Web Development', 'React']
+  },
   { title: 'Ants Vs. SomeBees', description: 'Developed a tower defense game using Python, focusing on OOP and functional programming paradigms.', link: 'https://github.com/java-heapler/ants-vs-somebees', categories: ['Games', 'Python'] },
   { title: 'Cats', description: 'Created a typing game using Python, implemented algorithms to calculate typing speed and accuracy.', link: 'https://github.com/java-heapler/cats', categories: ['Games', 'Python'] },
   { title: 'Hog', description: 'Built a dice game using Python, incorporating strategic decision-making and probabilistic analysis.', link: 'https://github.com/java-heapler/hog', categories: ['Games', 'Python'] },
