@@ -41,7 +41,7 @@ const About = () => {
       skills: [
         { name: 'TensorFlow', icon: 'tensorflow.svg' },
         { name: 'PyTorch', icon: 'pytorch.svg' },
-        { name: 'scikit-learn', icon: 'scikit-learn.svg' },
+        { name: 'scikit-learn', icon: 'scikitlearn.svg' },
         { name: 'SQL', icon: 'sql.svg' }
       ]
     },
