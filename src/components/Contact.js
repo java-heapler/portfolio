@@ -1,27 +1,54 @@
-import React from 'react';
-import Fade from 'react-reveal/Fade';
+import React, { useState } from 'react';
 import '../styles/Contact.css';
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Form submitted:', formData);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
   return (
-    <section id="contact" className="section contact">
-      <div className="profile-photo">
-          <img src={`${process.env.PUBLIC_URL}/profile_standing.jpg`} alt="Joe Heupler" />
+    <section className="contact-section" id="contact">
+      <h2>Contact Me</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="email">Your email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
         </div>
-      <Fade bottom>
-        <h2>Contact Me</h2>
-        <form className="contact-form" action="https://formspree.io/f/mjvnqabv" method="POST">
-          <label>
-            Your email:
-            <input type="email" name="email" required />
-          </label>
-          <label>
-            Your message:
-            <textarea name="message" required></textarea>
-          </label>
-          <button type="submit">Send</button>
-        </form>
-      </Fade>
+        <div className="form-group">
+          <label htmlFor="message">Message:</label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
     </section>
   );
 }
