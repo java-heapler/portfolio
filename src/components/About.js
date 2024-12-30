@@ -85,16 +85,6 @@ const About = () => {
           </p>
         </div>
 
-        <div className="key-interests fade-in-element">
-          <h3>Key Interests</h3>
-          <ul>
-            <li>Backend Development & System Architecture</li>
-            <li>Cloud Infrastructure & DevOps</li>
-            <li>Machine Learning & Data Engineering</li>
-            <li>Full-Stack Development</li>
-          </ul>
-        </div>
-
         <div className="technical-expertise fade-in-element">
           <h3>Technical Expertise</h3>
           {Object.entries(skillCategories).map(([category, { description, skills }]) => (
@@ -106,7 +96,7 @@ const About = () => {
                   <div key={skill.name} className="skill-item">
                     <img 
                       src={`${process.env.PUBLIC_URL}/assets/icons/${skill.icon}`}
-                      alt={`${skill.name} icon`}
+                      alt={skill.name}
                       className="skill-icon"
                     />
                     <span>{skill.name}</span>
@@ -115,6 +105,80 @@ const About = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="key-interests fade-in-element">
+          <h3>Key Interests</h3>
+          <ul>
+            <li>Backend Development & System Architecture</li>
+            <li>Cloud Infrastructure & DevOps</li>
+            <li>Machine Learning & Data Engineering</li>
+            <li>Full-Stack Development</li>
+          </ul>
+        </div>
+
+        <div className="github-stats fade-in-element">
+          <h3>GitHub Activity</h3>
+          <div className="github-info">
+            <div className="github-header">
+              <img 
+                src={`${process.env.PUBLIC_URL}/assets/icons/github.svg`}
+                alt="GitHub"
+                className="github-icon"
+              />
+              <a 
+                href="https://github.com/java-heapler"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="github-username"
+              >
+                @java-heapler
+              </a>
+            </div>
+            <p className="github-bio">
+              UC Berkeley DS & CogSci grad. Java, Python, C/C++. Innovator in tech solutions. 🚀
+            </p>
+            <div className="github-metrics">
+              <div className="metric">
+                <span className="metric-value">21</span>
+                <span className="metric-label">Repositories</span>
+              </div>
+              <div className="metric">
+                <span className="metric-value">1</span>
+                <span className="metric-label">Follower</span>
+              </div>
+              <div className="metric">
+                <span className="metric-value">1</span>
+                <span className="metric-label">Following</span>
+              </div>
+            </div>
+            <div className="featured-repos">
+              <h4>Featured Repositories</h4>
+              <div className="repo-grid">
+                {[
+                  { name: 'gitlet', desc: 'A Git-like version control system', lang: 'Java' },
+                  { name: 'portfolio', desc: 'Personal portfolio website', lang: 'JavaScript' },
+                  { name: 'philphix', desc: 'Text processing tool', lang: 'C' },
+                  { name: 'ataxx', desc: 'Game implementation', lang: 'Java' }
+                ].map(repo => (
+                  <a 
+                    key={repo.name}
+                    href={`https://github.com/java-heapler/${repo.name}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="repo-card"
+                  >
+                    <h5>{repo.name}</h5>
+                    <p>{repo.desc}</p>
+                    <span className="repo-language">
+                      <span className={`lang-dot ${repo.lang.toLowerCase()}`}></span>
+                      {repo.lang}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="resume-section fade-in-element">
