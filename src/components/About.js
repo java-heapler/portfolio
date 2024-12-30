@@ -26,6 +26,15 @@ const About = () => {
     return () => observer.disconnect();
   }, []);
 
+  const techStack = {
+    'Languages': ['Python', 'Java', 'JavaScript/TypeScript', 'SQL'],
+    'Frontend': ['React', 'Next.js', 'HTML/CSS', 'GraphQL'],
+    'Backend': ['Node.js', 'Spring Boot', 'Flask', 'Django'],
+    'Data & ML': ['TensorFlow', 'PyTorch', 'scikit-learn', 'Pandas'],
+    'Cloud & DevOps': ['AWS', 'Docker', 'Kubernetes', 'CI/CD'],
+    'Databases': ['PostgreSQL', 'MongoDB', 'Redis']
+  };
+
   return (
     <section id="about" className="about-section" ref={sectionRef}>
       <div className="about-content">
@@ -34,7 +43,7 @@ const About = () => {
         <div className="profile-photo fade-in-element">
           <img 
             src="/path/to/your-photo.jpg" 
-            alt="Your Name - Professional headshot"
+            alt="Professional Profile"
             loading="lazy"
             onLoad={(e) => e.target.classList.remove('loading')}
             className="loading"
@@ -43,25 +52,25 @@ const About = () => {
 
         <div className="about-text">
           <p className="fade-in-element">
-            As a software engineer with a unique background in Data Science and Cognitive Science 
-            from UC Berkeley, I bring a comprehensive approach to solving complex technical challenges. 
-            My expertise spans full-stack development, cloud infrastructure, and data engineering, 
-            allowing me to architect end-to-end solutions that scale.
+            As a UC Berkeley graduate with a unique background in Data Science and Cognitive Science, 
+            I bring a comprehensive approach to solving complex technical challenges. My expertise spans 
+            full-stack development, machine learning, and augmented reality, allowing me to architect 
+            end-to-end solutions that scale.
           </p>
           
           <p className="fade-in-element">
-            In backend development, I specialize in building high-performance APIs and 
-            microservices using Java Spring Boot and Python Flask. My experience with AWS 
-            and Docker enables me to implement robust CI/CD pipelines and maintain scalable 
-            cloud infrastructure. I'm particularly passionate about optimizing system 
-            performance and implementing efficient data processing pipelines.
+            In my recent role at NavAR, I specialized in building indoor navigation systems using 
+            cutting-edge AR technologies, while implementing robust CI/CD pipelines that accelerated 
+            deployments by 40%. My experience with AWS and containerization enables me to develop 
+            and maintain scalable cloud infrastructure, with a particular focus on optimizing 
+            system performance.
           </p>
 
           <p className="fade-in-element">
-            On the data science front, I've developed and deployed machine learning models 
-            for real-world applications, utilizing technologies like TensorFlow and scikit-learn. 
-            I combine this with strong software engineering practices to create maintainable, 
-            production-ready code that delivers business value.
+            On the data science front, I've developed and deployed various machine learning models, 
+            from sentiment analysis to neural networks for digit classification. I combine strong 
+            software engineering practices with data science expertise to create maintainable, 
+            production-ready solutions that deliver real business value.
           </p>
         </div>
 
@@ -78,8 +87,28 @@ const About = () => {
         <div className="technical-expertise fade-in-element">
           <h3>Technical Expertise</h3>
           <div className="tech-stack">
-            {/* Your tech stack */}
+            {Object.entries(techStack).map(([category, skills]) => (
+              <div key={category} className="tech-category">
+                <div className="tech-label">{category}</div>
+                <div className="tech-items">
+                  {skills.join(' • ')}
+                </div>
+              </div>
+            ))}
           </div>
+        </div>
+
+        <div className="resume-section fade-in-element">
+          <h3>Resume</h3>
+          <p>For a detailed overview of my experience and qualifications, please download my resume:</p>
+          <a 
+            href="/assets/resume/softwareEngineeringResume.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="resume-button"
+          >
+            Download Resume (PDF)
+          </a>
         </div>
       </div>
     </section>
