@@ -26,13 +26,34 @@ const About = () => {
     return () => observer.disconnect();
   }, []);
 
-  const techStack = {
-    'Languages': ['Python', 'Java', 'JavaScript/TypeScript', 'SQL'],
-    'Frontend': ['React', 'Next.js', 'HTML/CSS', 'GraphQL'],
-    'Backend': ['Node.js', 'Spring Boot', 'Flask', 'Django'],
-    'Data & ML': ['TensorFlow', 'PyTorch', 'scikit-learn', 'Pandas'],
-    'Cloud & DevOps': ['AWS', 'Docker', 'Kubernetes', 'CI/CD'],
-    'Databases': ['PostgreSQL', 'MongoDB', 'Redis']
+  const skillCategories = {
+    'Core Technologies': {
+      description: 'Primary technologies I use in production environments',
+      skills: [
+        { name: 'Python', context: 'Backend Development, Data Science' },
+        { name: 'Java', context: 'Enterprise Applications, Spring Boot' },
+        { name: 'JavaScript/TypeScript', context: 'Full-Stack Development' },
+        { name: 'React', context: 'Frontend Development' }
+      ]
+    },
+    'Data & Machine Learning': {
+      description: 'Technologies I use for data processing and ML applications',
+      skills: [
+        { name: 'TensorFlow', context: 'Deep Learning, Neural Networks' },
+        { name: 'PyTorch', context: 'Computer Vision, NLP' },
+        { name: 'scikit-learn', context: 'Machine Learning' },
+        { name: 'SQL', context: 'Data Analysis, Database Design' }
+      ]
+    },
+    'Infrastructure & DevOps': {
+      description: 'Tools I use for deployment and scalability',
+      skills: [
+        { name: 'AWS', context: 'Cloud Infrastructure' },
+        { name: 'Docker', context: 'Containerization' },
+        { name: 'Kubernetes', context: 'Container Orchestration' },
+        { name: 'CI/CD', context: 'Automated Deployment' }
+      ]
+    }
   };
 
   return (
@@ -40,16 +61,6 @@ const About = () => {
       <div className="about-content">
         <h2 className="fade-in-element">About Me</h2>
         
-        <div className="profile-photo fade-in-element">
-          <img 
-            src="/path/to/your-photo.jpg" 
-            alt="Professional Profile"
-            loading="lazy"
-            onLoad={(e) => e.target.classList.remove('loading')}
-            className="loading"
-          />
-        </div>
-
         <div className="about-text">
           <p className="fade-in-element">
             As a UC Berkeley graduate with a unique background in Data Science and Cognitive Science, 
@@ -84,25 +95,30 @@ const About = () => {
           </ul>
         </div>
 
-        <div className="technical-expertise fade-in-element">
-          <h3>Technical Expertise</h3>
-          <div className="tech-stack">
-            {Object.entries(techStack).map(([category, skills]) => (
-              <div key={category} className="tech-category">
-                <div className="tech-label">{category}</div>
-                <div className="tech-items">
-                  {skills.join(' • ')}
-                </div>
+        <div className="skills-section fade-in-element">
+          <h2>Technical Expertise</h2>
+          
+          {Object.entries(skillCategories).map(([category, { description, skills }]) => (
+            <div key={category} className="skill-category">
+              <h3>{category}</h3>
+              <p className="category-description">{description}</p>
+              <div className="skills-grid">
+                {skills.map(skill => (
+                  <div key={skill.name} className="skill-card">
+                    <h4>{skill.name}</h4>
+                    <p>{skill.context}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         <div className="resume-section fade-in-element">
           <h3>Resume</h3>
           <p>For a detailed overview of my experience and qualifications, please download my resume:</p>
           <a 
-            href="/assets/resume/softwareEngineeringResume.pdf" 
+            href={`${process.env.PUBLIC_URL}/assets/resume/softwareEngineeringResume.pdf`}
             target="_blank" 
             rel="noopener noreferrer" 
             className="resume-button"
