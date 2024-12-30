@@ -30,28 +30,28 @@ const About = () => {
     'Core Technologies': {
       description: 'Primary technologies I use in production environments',
       skills: [
-        { name: 'Python', context: 'Backend Development, Data Science' },
-        { name: 'Java', context: 'Enterprise Applications, Spring Boot' },
-        { name: 'JavaScript/TypeScript', context: 'Full-Stack Development' },
-        { name: 'React', context: 'Frontend Development' }
+        { name: 'Python', icon: 'python.svg' },
+        { name: 'Java', icon: 'java.svg' },
+        { name: 'JavaScript', icon: 'javascript.svg' },
+        { name: 'React', icon: 'react.svg' }
       ]
     },
     'Data & Machine Learning': {
       description: 'Technologies I use for data processing and ML applications',
       skills: [
-        { name: 'TensorFlow', context: 'Deep Learning, Neural Networks' },
-        { name: 'PyTorch', context: 'Computer Vision, NLP' },
-        { name: 'scikit-learn', context: 'Machine Learning' },
-        { name: 'SQL', context: 'Data Analysis, Database Design' }
+        { name: 'TensorFlow', icon: 'tensorflow.svg' },
+        { name: 'PyTorch', icon: 'pytorch.svg' },
+        { name: 'scikit-learn', icon: 'scikit-learn.svg' },
+        { name: 'SQL', icon: 'sql.svg' }
       ]
     },
     'Infrastructure & DevOps': {
       description: 'Tools I use for deployment and scalability',
       skills: [
-        { name: 'AWS', context: 'Cloud Infrastructure' },
-        { name: 'Docker', context: 'Containerization' },
-        { name: 'Kubernetes', context: 'Container Orchestration' },
-        { name: 'CI/CD', context: 'Automated Deployment' }
+        { name: 'AWS', icon: 'aws.svg' },
+        { name: 'Docker', icon: 'docker.svg' },
+        { name: 'Kubernetes', icon: 'kubernetes.svg' },
+        { name: 'Git', icon: 'git.svg' }
       ]
     }
   };
@@ -95,18 +95,21 @@ const About = () => {
           </ul>
         </div>
 
-        <div className="skills-section fade-in-element">
-          <h2>Technical Expertise</h2>
-          
+        <div className="technical-expertise fade-in-element">
+          <h3>Technical Expertise</h3>
           {Object.entries(skillCategories).map(([category, { description, skills }]) => (
-            <div key={category} className="skill-category">
-              <h3>{category}</h3>
+            <div key={category} className="expertise-category">
+              <h4>{category}</h4>
               <p className="category-description">{description}</p>
-              <div className="skills-grid">
+              <div className="skills-list">
                 {skills.map(skill => (
-                  <div key={skill.name} className="skill-card">
-                    <h4>{skill.name}</h4>
-                    <p>{skill.context}</p>
+                  <div key={skill.name} className="skill-item">
+                    <img 
+                      src={`${process.env.PUBLIC_URL}/assets/icons/${skill.icon}`}
+                      alt={`${skill.name} icon`}
+                      className="skill-icon"
+                    />
+                    <span>{skill.name}</span>
                   </div>
                 ))}
               </div>
