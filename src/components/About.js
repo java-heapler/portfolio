@@ -26,9 +26,11 @@ const About = () => {
     return () => observer.disconnect();
   }, []);
 
+  const getDelayClass = (index) => `delay-${index * 2}`;
+
   const skillCategories = {
     'Core Technologies': {
-      description: 'Primary technologies I use in production environments',
+      description: 'Advanced proficiency in modern development stack',
       skills: [
         { name: 'Python', icon: 'python.svg' },
         { name: 'Java', icon: 'java.svg' },
@@ -37,7 +39,7 @@ const About = () => {
       ]
     },
     'Data & Machine Learning': {
-      description: 'Technologies I use for data processing and ML applications',
+      description: 'Expertise in AI/ML frameworks and data processing',
       skills: [
         { name: 'TensorFlow', icon: 'tensorflow.svg' },
         { name: 'PyTorch', icon: 'pytorch.svg' },
@@ -46,7 +48,7 @@ const About = () => {
       ]
     },
     'Infrastructure & DevOps': {
-      description: 'Tools I use for deployment and scalability',
+      description: 'Cloud-native development and deployment expertise',
       skills: [
         { name: 'AWS', icon: 'aws.svg' },
         { name: 'Docker', icon: 'docker.svg' },
@@ -55,6 +57,21 @@ const About = () => {
       ]
     }
   };
+
+  const achievements = [
+    {
+      metric: "40%",
+      description: "Deployment speed improvement through CI/CD optimization"
+    },
+    {
+      metric: "99.9%",
+      description: "System uptime maintained for critical applications"
+    },
+    {
+      metric: "50+",
+      description: "Successfully completed projects"
+    }
+  ];
 
   return (
     <section id="about" className="about-section" ref={sectionRef}>
@@ -69,6 +86,15 @@ const About = () => {
             end-to-end solutions that scale.
           </p>
           
+          <div className="achievements-grid fade-in-element">
+            {achievements.map((achievement, index) => (
+              <div key={index} className={`achievement-card ${getDelayClass(index)}`}>
+                <h3>{achievement.metric}</h3>
+                <p>{achievement.description}</p>
+              </div>
+            ))}
+          </div>
+
           <p className="fade-in-element">
             In my recent role at NavAR, I specialized in building indoor navigation systems using 
             cutting-edge AR technologies, while implementing robust CI/CD pipelines that accelerated 
@@ -87,13 +113,13 @@ const About = () => {
 
         <div className="technical-expertise fade-in-element">
           <h3>Technical Expertise</h3>
-          {Object.entries(skillCategories).map(([category, { description, skills }]) => (
-            <div key={category} className="expertise-category">
+          {Object.entries(skillCategories).map(([category, { description, skills }], categoryIndex) => (
+            <div key={category} className={`expertise-category ${getDelayClass(categoryIndex)}`}>
               <h4>{category}</h4>
               <p className="category-description">{description}</p>
               <div className="skills-list">
-                {skills.map(skill => (
-                  <div key={skill.name} className="skill-item">
+                {skills.map((skill, skillIndex) => (
+                  <div key={skill.name} className={`skill-item ${getDelayClass(skillIndex)}`}>
                     <img 
                       src={`${process.env.PUBLIC_URL}/assets/icons/${skill.icon}`}
                       alt={skill.name}
