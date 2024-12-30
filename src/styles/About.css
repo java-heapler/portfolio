@@ -22,6 +22,7 @@
 .about-section {
   padding: 6rem 2rem;
   background: #ffffff;
+  scroll-margin-top: 70px;
 }
 
 .about-section h2 {
@@ -29,6 +30,8 @@
   margin-bottom: 3rem;
   font-size: 2.5rem;
   color: #2d3436;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.5px;
 }
 
 .about-content {
@@ -41,6 +44,9 @@
   font-size: 1.1rem;
   line-height: 1.8;
   color: #2d3436;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.2px;
+  max-width: 70ch;
 }
 
 .key-interests {
@@ -55,6 +61,8 @@
   color: #2d3436;
   margin-bottom: 1.5rem;
   font-size: 1.3rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.5px;
 }
 
 .key-interests ul {
@@ -72,11 +80,12 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   text-align: center;
   color: #2d3436;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .key-interests li:hover {
   transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -105,6 +114,8 @@
   color: #2d3436;
   margin-bottom: 1.5rem;
   font-size: 1.3rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.5px;
 }
 
 .tech-stack {
@@ -131,6 +142,8 @@
 
 .tech-items {
   color: #2d3436;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.2px;
 }
 
 @media (max-width: 768px) {
@@ -142,4 +155,28 @@
   .tech-label {
     min-width: auto;
   }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about .profile-photo img {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease;
+  will-change: opacity;
+}
+
+.about .profile-photo img.loading {
+  opacity: 0;
 }
