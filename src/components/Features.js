@@ -1,34 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-export const DarkModeToggle = () => {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      setIsDark(savedTheme === 'dark');
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = isDark ? 'light' : 'dark';
-    setIsDark(!isDark);
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-  };
-
-  return (
-    <button
-      onClick={toggleTheme}
-      className="theme-toggle"
-      aria-label="Toggle dark mode"
-    >
-      {isDark ? '🌞' : '🌙'}
-    </button>
-  );
-};
-
 export const ReadingProgress = () => {
   const [width, setWidth] = useState(0);
 

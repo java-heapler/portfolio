@@ -1,42 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { ThemeProvider } from '../context/ThemeContext';
+import ThemeToggle from './ThemeToggle';
+import Navigation from './Navigation';
 import Header from './Header';
 import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
+import Footer from './Footer';
+import BackToTop from './BackToTop';
 import '../styles/App.css';
+import '../styles/theme.css';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading of resources
-    const timer = setTimeout(() => setIsLoading(false), 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="loading-screen">
-        <div className="loader"></div>
-      </div>
-    );
-  }
-
   return (
-    <div id="top" className="app">
-      <Header />
-      <main className="container">
-        <section id="about" className="section">
+    <ThemeProvider>
+      <div className="app">
+        <Navigation />
+        <main className="container">
+          <Header />
           <About />
-        </section>
-        <section id="projects" className="section">
           <Projects />
-        </section>
-        <section id="contact" className="section">
           <Contact />
-        </section>
-      </main>
-    </div>
+        </main>
+        <Footer />
+        <ThemeToggle />
+        <BackToTop />
+      </div>
+    </ThemeProvider>
   );
 }
 

@@ -1,0 +1,89 @@
+:root {
+  /* Light theme variables */
+  --primary: #ffffff;
+  --secondary: #64ffda;
+  --text-primary: #2d3436;
+  --text-secondary: #636e72;
+  --bg-light: #f5f6fa;
+  --bg-lighter: #dfe6e9;
+  --card-bg: #ffffff;
+  --hover-color: #f1f2f6;
+  --border-color: #dfe6e9;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --primary: #0a192f;
+  --secondary: #64ffda;
+  --text-primary: #ccd6f6;
+  --text-secondary: #8892b0;
+  --bg-light: #112240;
+  --bg-lighter: #233554;
+  --card-bg: #1a1a1a;
+  --hover-color: #2d2d2d;
+  --border-color: #2d2d2d;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Common transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Base styles */
+body {
+  background-color: var(--primary);
+  color: var(--text-primary);
+}
+
+/* Card styles */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+/* Button styles */
+.button {
+  background-color: var(--bg-light);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.button:hover {
+  background-color: var(--hover-color);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--bg-light);
+  color: var(--secondary);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    bottom: 1rem;
+    left: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+} 
