@@ -10,7 +10,8 @@ function App() {
 
   useEffect(() => {
     // Simulate loading of resources
-    setTimeout(() => setIsLoading(false), 1000);
+    const timer = setTimeout(() => setIsLoading(false), 1000);
+    return () => clearTimeout(timer);
   }, []);
 
   if (isLoading) {
@@ -22,16 +23,16 @@ function App() {
   }
 
   return (
-    <div id="top">
+    <div id="top" className="app">
       <Header />
       <main className="container">
-        <section id="about">
+        <section id="about" className="section">
           <About />
         </section>
-        <section id="projects">
+        <section id="projects" className="section">
           <Projects />
         </section>
-        <section id="contact">
+        <section id="contact" className="section">
           <Contact />
         </section>
       </main>
