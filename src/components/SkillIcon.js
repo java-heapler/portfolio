@@ -7,13 +7,12 @@ const SkillIcon = ({ icon, name }) => {
 
   // Remove file extension and add -light for dark mode
   const iconName = icon.replace('.svg', '');
-  const iconPath = isDarkMode 
-    ? `${process.env.PUBLIC_URL}/assets/icons/${iconName}-light.svg`
-    : `${process.env.PUBLIC_URL}/assets/icons/${iconName}.svg`;
+  const darkModeIconPath = `${process.env.PUBLIC_URL}/assets/icons/${iconName}-light.svg`;
+  const lightModeIconPath = `${process.env.PUBLIC_URL}/assets/icons/${icon}`;
 
   return (
     <img 
-      src={iconPath}
+      src={isDarkMode ? darkModeIconPath : lightModeIconPath}
       alt={`${name} icon`}
       className="skill-icon"
       loading="lazy"
@@ -21,7 +20,7 @@ const SkillIcon = ({ icon, name }) => {
       height="32"
       onError={(e) => {
         // Fallback to original icon if light version doesn't exist
-        e.target.src = `${process.env.PUBLIC_URL}/assets/icons/${icon}`;
+        e.target.src = lightModeIconPath;
       }}
     />
   );

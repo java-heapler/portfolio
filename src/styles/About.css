@@ -612,6 +612,16 @@ button:hover {
   color: var(--text-primary);
 }
 
+[data-theme='dark'] .about-section h2,
+[data-theme='dark'] .about-section h3,
+[data-theme='dark'] .about-section h4 {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .about-text p {
+  color: #e0e0e0;
+}
+
 [data-theme='dark'] .about-text p,
 [data-theme='dark'] .skill-card,
 [data-theme='dark'] .skill-category,
