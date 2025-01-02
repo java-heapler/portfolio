@@ -196,3 +196,80 @@
     padding: 0.75rem 1.25rem;
   }
 }
+
+/* Dark mode styles */
+[data-theme='dark'] .projects {
+  background: #1a1a1a;
+}
+
+[data-theme='dark'] .projects h2 {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .search-box input {
+  background: #2d2d2d;
+  border-color: #3a3a3a;
+  color: #ffffff;
+}
+
+[data-theme='dark'] .search-box input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.25);
+}
+
+[data-theme='dark'] .search-icon {
+  color: #888;
+}
+
+[data-theme='dark'] .filter-btn {
+  background: #2d2d2d;
+  color: #e0e0e0;
+  border-color: #3a3a3a;
+}
+
+[data-theme='dark'] .filter-btn.active {
+  background: #4a90e2;
+  color: #ffffff;
+}
+
+[data-theme='dark'] .filter-btn:hover {
+  background: #3a3a3a;
+}
+
+[data-theme='dark'] .project-card {
+  background: #2d2d2d;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .project-content {
+  background: linear-gradient(
+    to bottom,
+    rgba(45, 45, 45, 1) 0%,
+    rgba(35, 35, 35, 0.95) 100%
+  );
+}
+
+[data-theme='dark'] .project-card h3 {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .project-card p {
+  color: #e0e0e0;
+}
+
+[data-theme='dark'] .tag {
+  background: #3a3a3a;
+  color: #e0e0e0;
+}
+
+[data-theme='dark'] .project-footer {
+  border-top-color: #3a3a3a;
+}
+
+[data-theme='dark'] .github-link {
+  color: #4a90e2;
+}
+
+[data-theme='dark'] .github-link:hover {
+  color: #357abd;
+}

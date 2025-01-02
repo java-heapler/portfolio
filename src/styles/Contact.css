@@ -86,3 +86,37 @@ button:hover {
     padding: 0.9rem 1.5rem;
   }
 }
+
+/* Dark mode styles */
+[data-theme='dark'] .contact-section {
+  background: #1a1a1a;
+}
+
+[data-theme='dark'] .contact-section h2 {
+  color: #ffffff;
+}
+
+[data-theme='dark'] label {
+  color: #e0e0e0;
+}
+
+[data-theme='dark'] input,
+[data-theme='dark'] textarea {
+  background: #2d2d2d;
+  border-color: #3a3a3a;
+  color: #ffffff;
+}
+
+[data-theme='dark'] input:focus,
+[data-theme='dark'] textarea:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.25);
+}
+
+[data-theme='dark'] button {
+  background: #4a90e2;
+}
+
+[data-theme='dark'] button:hover {
+  background: #357abd;
+}

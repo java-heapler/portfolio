@@ -25,12 +25,17 @@ function App() {
       <Router>
         <div className="app">
           <Navigation />
-          <main className="container">
-            <Header />
-            <About />
-            <Projects />
-            <Contact />
-          </main>
+          <Routes>
+            <Route path="/" element={
+              <main className="container">
+                <Header />
+                <About />
+                <Projects />
+                <Contact />
+              </main>
+            } />
+            <Route path="/privacy" element={<Privacy />} />
+          </Routes>
           <Footer />
           <ThemeToggle />
           <BackToTop />
