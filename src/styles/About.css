@@ -290,17 +290,24 @@
 .skill-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.skill-item span {
+  color: #333;
+  font-weight: 500;
+}
+
+[data-theme='dark'] .skill-item span {
+  color: #e0e0e0;
 }
 
 .skill-item:hover {
-  transform: scale(1.05);
+  background: rgba(0, 123, 255, 0.1);
 }
 
 .skill-icon {
