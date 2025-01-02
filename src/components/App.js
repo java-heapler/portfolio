@@ -8,6 +8,7 @@ import Projects from './Projects';
 import Contact from './Contact';
 import Footer from './Footer';
 import BackToTop from './BackToTop';
+import CookieConsent from './CookieConsent';
 import '../styles/App.css';
 import '../styles/theme.css';
 import { initGA } from '../utils/analytics';
@@ -30,6 +31,7 @@ function App() {
         <Footer />
         <ThemeToggle />
         <BackToTop />
+        <CookieConsent />
       </div>
     </ThemeProvider>
   );
