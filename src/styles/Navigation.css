@@ -5,15 +5,15 @@
   right: 0;
   z-index: 1000;
   padding: 1rem 0;
-  transition: var(--transition);
-  background: transparent;
+  transition: all 0.3s ease;
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .navigation.scrolled {
-  background: rgba(10, 25, 47, 0.85);
-  backdrop-filter: blur(10px);
   padding: 0.8rem 0;
-  box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+  box-shadow: 0 4px 20px var(--nav-shadow);
 }
 
 .nav-container {
@@ -28,22 +28,28 @@
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--secondary);
+  color: var(--text-primary);
   text-decoration: none;
   font-family: 'SF Mono', monospace;
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--secondary);
 }
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
 }
 
 .nav-links a {
-  color: var(--text-primary);
+  color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: var(--transition);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
   position: relative;
   padding: 0.5rem 0;
 }
@@ -60,7 +66,7 @@
   width: 0;
   height: 2px;
   background: var(--secondary);
-  transition: var(--transition);
+  transition: width 0.3s ease;
 }
 
 .nav-links a:hover::after {
@@ -68,40 +74,44 @@
 }
 
 .resume-button {
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--secondary);
-  border-radius: 4px;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--secondary);
+  border-radius: 6px;
   color: var(--secondary);
-  font-size: 0.9rem;
-  transition: var(--transition);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: transparent;
 }
 
 .resume-button:hover {
-  background: rgba(100, 255, 218, 0.1);
+  background: var(--secondary);
+  color: white;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 .menu-toggle {
   display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: var(--text-primary);
+  margin: 5px 0;
+  transition: all 0.3s ease;
 }
 
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 1001;
-  }
-
-  .menu-toggle span {
-    display: block;
-    width: 25px;
-    height: 2px;
-    background: var(--secondary);
-    margin: 5px 0;
-    transition: var(--transition);
   }
 
   .menu-toggle.active span:nth-child(1) {
@@ -122,14 +132,19 @@
     right: -100%;
     width: 75%;
     height: 100vh;
-    background: var(--bg-light);
+    background: var(--card-bg);
     flex-direction: column;
     justify-content: center;
-    transition: var(--transition);
+    transition: all 0.3s ease;
     padding: 2rem;
+    box-shadow: -10px 0 30px var(--shadow-color);
   }
 
   .nav-links.active {
     right: 0;
+  }
+
+  .nav-container {
+    padding: 0 1.5rem;
   }
 } 
