@@ -55,7 +55,7 @@ const About = () => {
       skills: [
         { name: 'TensorFlow', icon: 'tensorflow.svg' },
         { name: 'PyTorch', icon: 'pytorch.svg' },
-        { name: 'scikit-learn', icon: 'scikitlearn.svg' },
+        { name: 'scikit-learn', icon: 'scikit-learn.svg' },
         { name: 'SQL', icon: 'sql.svg' }
       ]
     },
@@ -190,14 +190,7 @@ const About = () => {
                     aria-label={`${skill.name} Skill`}
                   >
                     <Suspense fallback={<div className="skill-icon-placeholder" aria-hidden="true" />}>
-                      <img 
-                        src={`${process.env.PUBLIC_URL}/assets/icons/${skill.icon}`}
-                        alt={`${skill.name} icon`}
-                        className="skill-icon"
-                        loading="lazy"
-                        width="32"
-                        height="32"
-                      />
+                      <SkillIcon icon={skill.icon} name={skill.name} />
                     </Suspense>
                     <span>{skill.name}</span>
                   </div>
