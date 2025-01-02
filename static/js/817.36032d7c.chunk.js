@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkjoe_heupler_portfolio=self.webpackChunkjoe_heupler_portfolio||[]).push([[817],{817:(e,o,l)=>{l.r(o),l.d(o,{default:()=>t});l(43);var s=l(579);const t=e=>{let{icon:o,name:l}=e;return(0,s.jsx)("img",{src:"".concat("/portfolio","/assets/icons/").concat(o),alt:l,className:"skill-icon",loading:"lazy",width:"32",height:"32"})}}}]);
-//# sourceMappingURL=817.36032d7c.chunk.js.map
