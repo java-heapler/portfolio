@@ -126,26 +126,26 @@ export const LoadingAnimation = ({ isLoading }) => {
 };
 
 export const CookieConsent = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [showBanner, setShowBanner] = useState(true);
 
   useEffect(() => {
     const consent = localStorage.getItem('cookieConsent');
     if (consent) {
-      setIsVisible(false);
+      setShowBanner(false);
     }
   }, []);
 
   const acceptCookies = () => {
     localStorage.setItem('cookieConsent', 'true');
-    setIsVisible(false);
+    setShowBanner(false);
   };
 
-  if (!isVisible) return null;
+  if (!showBanner) return null;
 
   return (
     <div className="cookie-consent">
       <p>
-        This website uses cookies to enhance your experience. 
+        This website uses cookies to enhance your experience.
         By continuing to visit this site, you agree to our use of cookies.
       </p>
       <button onClick={acceptCookies}>Accept</button>

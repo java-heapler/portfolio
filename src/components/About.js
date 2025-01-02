@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ReactGA from 'react-ga4';
 import '../styles/About.css';
-import { ReadingProgress, ScrollToTop, InteractiveBackground, LoadingAnimation, CookieConsent, SkillProgressBar } from './Features';
+import { ReadingProgress, ScrollToTop, InteractiveBackground, LoadingAnimation, SkillProgressBar } from './Features';
 
 // Initialize GA4 (add this outside the component)
 ReactGA.initialize('YOUR-MEASUREMENT-ID'); // Replace with your GA4 measurement ID
@@ -193,8 +193,6 @@ const About = () => {
             Download Resume (PDF)
           </a>
         </div>
-
-        <CookieConsent />
       </div>
     </section>
   );
