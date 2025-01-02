@@ -1,0 +1,85 @@
+.privacy-policy-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.privacy-policy-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.privacy-policy-content h2 {
+  color: #2d3436;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.privacy-policy-content h3 {
+  color: #2d3436;
+  margin: 1.5rem 0 1rem;
+  font-size: 1.4rem;
+}
+
+.policy-text {
+  color: #4a4a4a;
+  line-height: 1.6;
+}
+
+.policy-text p {
+  margin-bottom: 1rem;
+}
+
+.policy-text ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.policy-text li {
+  margin-bottom: 0.5rem;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.close-button:hover {
+  background: #0056b3;
+}
+
+/* Dark mode support */
+[data-theme='dark'] .privacy-policy-content {
+  background: #2d2d2d;
+  color: #ffffff;
+}
+
+[data-theme='dark'] .privacy-policy-content h2,
+[data-theme='dark'] .privacy-policy-content h3 {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .policy-text {
+  color: #e0e0e0;
+} 
