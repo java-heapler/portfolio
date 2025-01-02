@@ -1,10 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, lazy, Suspense } from 'react';
 import ReactGA from 'react-ga4';
 import '../styles/About.css';
 import { ReadingProgress, ScrollToTop, InteractiveBackground, LoadingAnimation, SkillProgressBar } from './Features';
 
 // Initialize GA4 (add this outside the component)
 ReactGA.initialize('YOUR-MEASUREMENT-ID'); // Replace with your GA4 measurement ID
+
+// Lazy load the skill icons
+const SkillIcon = lazy(() => import('./SkillIcon'));
 
 const About = () => {
   const [loading, setLoading] = useState(false);
@@ -157,11 +160,16 @@ const About = () => {
                     role="button"
                     tabIndex={0}
                   >
-                    <img 
-                      src={`${process.env.PUBLIC_URL}/assets/icons/${skill.icon}`}
-                      alt={skill.name}
-                      className="skill-icon"
-                    />
+                    <Suspense fallback={<div className="skill-icon-placeholder" />}>
+                      <img 
+                        src={`${process.env.PUBLIC_URL}/assets/icons/${skill.icon}`}
+                        alt={skill.name}
+                        className="skill-icon"
+                        loading="lazy"
+                        width="32"
+                        height="32"
+                      />
+                    </Suspense>
                     <span>{skill.name}</span>
                   </div>
                 ))}
@@ -189,6 +197,7 @@ const About = () => {
             rel="noopener noreferrer" 
             className="resume-button"
             onClick={trackResumeDownload}
+            download
           >
             Download Resume (PDF)
           </a>
