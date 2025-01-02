@@ -13,7 +13,7 @@ import './styles/App.css';
 function App() {
   return (
     <ThemeProvider>
-      <Router>
+      <Router basename="/portfolio">
         <div className="app">
           <Navigation />
           <main>

@@ -9,7 +9,7 @@ const SkillIcon = ({ icon, name }) => {
   const baseName = icon.replace('.svg', '');
   
   // Construct paths for both light and dark mode
-  const darkModeIconPath = `${process.env.PUBLIC_URL}/assets/icons/${baseName}-light.svg`;
+  const darkModeIconPath = `${process.env.PUBLIC_URL}/assets/icons/${baseName.replace('scikitlearn', 'scikit-learn')}-light.svg`;
   const lightModeIconPath = `${process.env.PUBLIC_URL}/assets/icons/${icon}`;
 
   return (
@@ -21,9 +21,10 @@ const SkillIcon = ({ icon, name }) => {
       width="32"
       height="32"
       onError={(e) => {
+        console.log(`Failed to load icon: ${e.target.src}`);
         // If dark mode icon fails to load, fallback to light mode icon
-        if (isDarkMode) {
-          console.log(`Dark mode icon not found for ${name}, falling back to light mode`);
+        if (isDarkMode && e.target.src !== lightModeIconPath) {
+          console.log(`Falling back to light mode icon for ${name}`);
           e.target.src = lightModeIconPath;
         }
       }}
