@@ -1,12 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
+import ReactGA from 'react-ga4';
 import '../styles/About.css';
 import { ReadingProgress, ScrollToTop, InteractiveBackground, LoadingAnimation, CookieConsent, SkillProgressBar } from './Features';
+
+// Initialize GA4 (add this outside the component)
+ReactGA.initialize('YOUR-MEASUREMENT-ID'); // Replace with your GA4 measurement ID
 
 const About = () => {
   const [loading, setLoading] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    // Track page view when component mounts
+    ReactGA.send({ hitType: "pageview", page: "/about" });
+
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '50px',
@@ -75,6 +82,23 @@ const About = () => {
     }
   ];
 
+  // Analytics event tracking functions
+  const trackResumeDownload = () => {
+    ReactGA.event({
+      category: 'User',
+      action: 'Downloaded Resume',
+      label: 'Resume Download'
+    });
+  };
+
+  const trackSkillClick = (skillName) => {
+    ReactGA.event({
+      category: 'Skill Interaction',
+      action: 'Clicked Skill',
+      label: skillName
+    });
+  };
+
   return (
     <section id="about" className="about-section" ref={sectionRef}>
       <div className="about-content">
@@ -126,7 +150,13 @@ const About = () => {
               <p className="category-description">{description}</p>
               <div className="skills-list">
                 {skills.map((skill, skillIndex) => (
-                  <div key={skill.name} className={`skill-item ${getDelayClass(skillIndex)}`}>
+                  <div 
+                    key={skill.name} 
+                    className={`skill-item ${getDelayClass(skillIndex)}`}
+                    onClick={() => trackSkillClick(skill.name)}
+                    role="button"
+                    tabIndex={0}
+                  >
                     <img 
                       src={`${process.env.PUBLIC_URL}/assets/icons/${skill.icon}`}
                       alt={skill.name}
@@ -158,6 +188,7 @@ const About = () => {
             target="_blank" 
             rel="noopener noreferrer" 
             className="resume-button"
+            onClick={trackResumeDownload}
           >
             Download Resume (PDF)
           </a>

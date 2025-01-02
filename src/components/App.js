@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from '../context/ThemeContext';
 import ThemeToggle from './ThemeToggle';
 import Navigation from './Navigation';
@@ -10,8 +10,13 @@ import Footer from './Footer';
 import BackToTop from './BackToTop';
 import '../styles/App.css';
 import '../styles/theme.css';
+import { initGA } from '../utils/analytics';
 
 function App() {
+  useEffect(() => {
+    initGA();
+  }, []);
+
   return (
     <ThemeProvider>
       <div className="app">
