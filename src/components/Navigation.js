@@ -34,11 +34,10 @@ function Navigation() {
 
         <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
           <a href="#about" onClick={(e) => handleSmoothScroll(e, 'about')}>About</a>
-          <a href="#skills" onClick={(e) => handleSmoothScroll(e, 'skills')}>Skills</a>
           <a href="#projects" onClick={(e) => handleSmoothScroll(e, 'projects')}>Projects</a>
           <a href="#contact" onClick={(e) => handleSmoothScroll(e, 'contact')}>Contact</a>
           <a 
-            href="/resume.pdf" 
+            href={`${process.env.PUBLIC_URL}/assets/resume/softwareEngineeringResume.pdf`}
             className="resume-button"
             target="_blank"
             rel="noopener noreferrer"
@@ -50,6 +49,7 @@ function Navigation() {
         <button 
           className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         >
           <span></span>
           <span></span>
