@@ -4,7 +4,9 @@
   "homepage": "https://java-heupler.github.io/portfolio",
   "private": true,
   "dependencies": {
+    "animate.css": "^4.1.1",
     "framer-motion": "^11.15.0",
+    "gsap": "^3.12.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-ga4": "^2.1.0",
