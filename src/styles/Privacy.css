@@ -46,14 +46,42 @@
 }
 
 /* Dark mode styles */
+[data-theme='dark'] .privacy-container {
+  background: var(--bg-primary, #1a1a1a);
+}
+
 [data-theme='dark'] .privacy-container h1,
 [data-theme='dark'] .privacy-content h2 {
-  color: #ffffff;
+  color: var(--text-primary, #ffffff);
 }
 
 [data-theme='dark'] .privacy-content p,
 [data-theme='dark'] .privacy-content li {
-  color: #e0e0e0;
+  color: var(--text-secondary, #e0e0e0);
+}
+
+[data-theme='dark'] .privacy-content section {
+  background: var(--card-bg, #2d2d2d);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .privacy-content section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background: var(--hover-color, #3a3a3a);
+}
+
+[data-theme='dark'] .privacy-content ul {
+  border-left: 2px solid var(--secondary, #4a90e2);
+  padding-left: 1rem;
+  margin-left: 1rem;
+}
+
+[data-theme='dark'] .privacy-content li::marker {
+  color: var(--secondary, #4a90e2);
 }
 
 @media (max-width: 768px) {

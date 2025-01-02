@@ -10,7 +10,7 @@ const Footer = () => {
           © {new Date().getFullYear()} Joe Heupler. All rights reserved.
         </div>
         <div className="footer-right">
-          <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+          <Link to="#/privacy" className="footer-link">Privacy Policy</Link>
         </div>
       </div>
     </footer>

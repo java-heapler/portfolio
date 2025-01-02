@@ -89,34 +89,51 @@ button:hover {
 
 /* Dark mode styles */
 [data-theme='dark'] .contact-section {
-  background: #1a1a1a;
+  background: var(--bg-primary, #1a1a1a);
 }
 
 [data-theme='dark'] .contact-section h2 {
-  color: #ffffff;
+  color: var(--text-primary, #ffffff);
 }
 
 [data-theme='dark'] label {
-  color: #e0e0e0;
+  color: var(--text-primary, #e0e0e0);
 }
 
 [data-theme='dark'] input,
 [data-theme='dark'] textarea {
-  background: #2d2d2d;
-  border-color: #3a3a3a;
-  color: #ffffff;
+  background: var(--card-bg, #2d2d2d);
+  border-color: var(--border-color, #3a3a3a);
+  color: var(--text-primary, #ffffff);
+  transition: all 0.3s ease;
 }
 
 [data-theme='dark'] input:focus,
 [data-theme='dark'] textarea:focus {
-  border-color: #4a90e2;
+  border-color: var(--secondary, #4a90e2);
   box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.25);
+  background: var(--hover-color, #3a3a3a);
+}
+
+[data-theme='dark'] input:hover,
+[data-theme='dark'] textarea:hover {
+  border-color: var(--secondary, #4a90e2);
+  background: var(--hover-color, #3a3a3a);
 }
 
 [data-theme='dark'] button {
-  background: #4a90e2;
+  background: var(--secondary, #4a90e2);
+  color: var(--text-primary, #ffffff);
+  transition: all 0.3s ease;
 }
 
 [data-theme='dark'] button:hover {
-  background: #357abd;
+  background: var(--accent, #357abd);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
