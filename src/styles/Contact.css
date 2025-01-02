@@ -59,11 +59,30 @@ button:hover {
 
 @media (max-width: 768px) {
   .contact-section {
-    padding: 4rem 1rem;
+    padding: 4rem 1.5rem;
   }
   
+  .contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  form {
+    padding: 0 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
   input,
   textarea {
     font-size: 16px; /* Prevents zoom on mobile */
+    padding: 0.7rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 0.9rem 1.5rem;
   }
 }
