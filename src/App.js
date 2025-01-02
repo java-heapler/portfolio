@@ -1,31 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
+import ThemeToggle from './components/ThemeToggle';
 import Navigation from './components/Navigation';
-import Home from './components/Home';
+import Header from './components/Header';
 import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
+import CookieConsent from './components/CookieConsent';
 import Privacy from './components/Privacy';
-import { ThemeProvider } from './context/ThemeContext';
 import './styles/App.css';
+import './styles/theme.css';
+import { initGA } from './utils/analytics';
 
 function App() {
+  useEffect(() => {
+    initGA();
+  }, []);
+
   return (
     <ThemeProvider>
       <Router>
         <div className="app">
           <Navigation />
-          <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/privacy" element={<Privacy />} />
-            </Routes>
+          <main className="container">
+            <Header />
+            <About />
+            <Projects />
+            <Contact />
           </main>
           <Footer />
+          <ThemeToggle />
+          <BackToTop />
+          <CookieConsent />
         </div>
       </Router>
     </ThemeProvider>
