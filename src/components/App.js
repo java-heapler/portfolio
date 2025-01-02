@@ -22,12 +22,18 @@ function App() {
   }
 
   return (
-    <div>
+    <div id="top">
       <Header />
       <main className="container">
-        <About />
-        <Projects />
-        <Contact />
+        <section id="about">
+          <About />
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
       </main>
     </div>
   );

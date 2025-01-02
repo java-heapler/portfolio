@@ -13,18 +13,30 @@ function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      setIsMenuOpen(false); // Close mobile menu after clicking
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   return (
     <nav className={`navigation ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
-        <a href="#" className="logo">
+        <a href="#" className="logo" onClick={(e) => handleSmoothScroll(e, 'top')}>
           JH
         </a>
 
         <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+          <a href="#about" onClick={(e) => handleSmoothScroll(e, 'about')}>About</a>
+          <a href="#skills" onClick={(e) => handleSmoothScroll(e, 'skills')}>Skills</a>
+          <a href="#projects" onClick={(e) => handleSmoothScroll(e, 'projects')}>Projects</a>
+          <a href="#contact" onClick={(e) => handleSmoothScroll(e, 'contact')}>Contact</a>
           <a 
             href="/resume.pdf" 
             className="resume-button"
