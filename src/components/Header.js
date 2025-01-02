@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Fade from 'react-reveal/Fade';
+import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import '../styles/Header.css';
 
@@ -15,56 +15,75 @@ function Header() {
       <div className="header-content">
         <div className="header-main">
           <div className="header-text">
-            <Fade bottom delay={200}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
               <h1>
                 <span className="greeting">Hello, I'm</span>
                 <span className="name">Joseph Heupler</span>
               </h1>
-            </Fade>
+            </motion.div>
             
-            <Fade bottom delay={400}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
               <h2 className="title">Software Engineer</h2>
-            </Fade>
+            </motion.div>
             
-            <Fade bottom delay={600}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+            >
               <p className="description">
                 Full-stack developer and UC Berkeley graduate specializing in scalable 
                 applications, cloud architecture, and data-driven solutions. 
                 Experienced in building robust backend systems and deploying 
                 production-ready applications with modern DevOps practices.
               </p>
-            </Fade>
+            </motion.div>
 
-            <Fade bottom delay={800}>
-              <div className="cta-buttons">
-                <a href="#projects" className="primary-btn">View Projects</a>
-                <a href="#contact" className="secondary-btn">Get in Touch</a>
-              </div>
-            </Fade>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="cta-buttons"
+            >
+              <a href="#projects" className="primary-btn">View Projects</a>
+              <a href="#contact" className="secondary-btn">Get in Touch</a>
+            </motion.div>
 
-            <Fade bottom delay={1000}>
-              <div className="social-links">
-                <a href="https://github.com/java-heapler" target="_blank" rel="noopener noreferrer">
-                  <FaGithub />
-                </a>
-                <a href="https://www.linkedin.com/in/joseph-heupler/" target="_blank" rel="noopener noreferrer">
-                  <FaLinkedin />
-                </a>
-                <a href="mailto:jheupler@berkeley.edu">
-                  <FaEnvelope />
-                </a>
-              </div>
-            </Fade>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.0 }}
+              className="social-links"
+            >
+              <a href="https://github.com/java-heapler" target="_blank" rel="noopener noreferrer">
+                <FaGithub />
+              </a>
+              <a href="https://www.linkedin.com/in/joseph-heupler/" target="_blank" rel="noopener noreferrer">
+                <FaLinkedin />
+              </a>
+              <a href="mailto:jheupler@berkeley.edu">
+                <FaEnvelope />
+              </a>
+            </motion.div>
           </div>
 
           <div className="header-image">
-            <Fade right delay={600}>
-              <img 
-                src={`${process.env.PUBLIC_URL}/profile.jpg`} 
-                alt="Joseph Heupler" 
-                className="profile-image" 
-              />
-            </Fade>
+            <motion.img 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6 }}
+              src={`${process.env.PUBLIC_URL}/profile.jpg`} 
+              alt="Joseph Heupler" 
+              className="profile-image" 
+            />
           </div>
         </div>
       </div>
