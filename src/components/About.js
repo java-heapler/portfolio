@@ -102,8 +102,20 @@ const About = () => {
     });
   };
 
+  const handleKeyPress = (e, callback) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      callback();
+    }
+  };
+
   return (
-    <section id="about" className="about-section" ref={sectionRef}>
+    <section 
+      id="about" 
+      className="about-section" 
+      ref={sectionRef}
+      aria-label="About Me Section"
+    >
       <div className="about-content">
         <LoadingAnimation isLoading={loading} />
         <ReadingProgress />
@@ -112,7 +124,7 @@ const About = () => {
         
         <h2 className="fade-in-element">About Me</h2>
         
-        <div className="about-text">
+        <div className="about-text" aria-label="Personal Introduction">
           <p className="fade-in-element">
             As a UC Berkeley graduate with a unique background in Data Science and Cognitive Science, 
             I bring a comprehensive approach to solving complex technical challenges. My expertise spans 
@@ -120,9 +132,13 @@ const About = () => {
             end-to-end solutions that scale.
           </p>
           
-          <div className="achievements-grid fade-in-element">
+          <div className="achievements-grid fade-in-element" aria-label="Key Achievements">
             {achievements.map((achievement, index) => (
-              <div key={index} className={`achievement-card ${getDelayClass(index)}`}>
+              <div 
+                key={index} 
+                className={`achievement-card ${getDelayClass(index)}`}
+                aria-label={`Achievement: ${achievement.metric} - ${achievement.description}`}
+              >
                 <h3>{achievement.metric}</h3>
                 <p>{achievement.description}</p>
               </div>
@@ -145,25 +161,38 @@ const About = () => {
           </p>
         </div>
 
-        <div className="technical-expertise fade-in-element">
+        <div 
+          className="technical-expertise fade-in-element"
+          aria-label="Technical Skills and Expertise"
+        >
           <h3>Technical Expertise</h3>
           {Object.entries(skillCategories).map(([category, { description, skills }], categoryIndex) => (
-            <div key={category} className={`expertise-category ${getDelayClass(categoryIndex)}`}>
+            <div 
+              key={category} 
+              className={`expertise-category ${getDelayClass(categoryIndex)}`}
+              aria-label={`${category} Category`}
+            >
               <h4>{category}</h4>
               <p className="category-description">{description}</p>
-              <div className="skills-list">
+              <div 
+                className="skills-list"
+                role="list"
+                aria-label={`${category} Skills`}
+              >
                 {skills.map((skill, skillIndex) => (
                   <div 
                     key={skill.name} 
                     className={`skill-item ${getDelayClass(skillIndex)}`}
                     onClick={() => trackSkillClick(skill.name)}
+                    onKeyPress={(e) => handleKeyPress(e, () => trackSkillClick(skill.name))}
                     role="button"
                     tabIndex={0}
+                    aria-label={`${skill.name} Skill`}
                   >
-                    <Suspense fallback={<div className="skill-icon-placeholder" />}>
+                    <Suspense fallback={<div className="skill-icon-placeholder" aria-hidden="true" />}>
                       <img 
                         src={`${process.env.PUBLIC_URL}/assets/icons/${skill.icon}`}
-                        alt={skill.name}
+                        alt={`${skill.name} icon`}
                         className="skill-icon"
                         loading="lazy"
                         width="32"
@@ -178,7 +207,10 @@ const About = () => {
           ))}
         </div>
 
-        <div className="key-interests fade-in-element">
+        <div 
+          className="key-interests fade-in-element"
+          aria-label="Key Areas of Interest"
+        >
           <h3>Key Interests</h3>
           <ul>
             <li>Backend Development & System Architecture</li>
@@ -188,7 +220,10 @@ const About = () => {
           </ul>
         </div>
 
-        <div className="resume-section fade-in-element">
+        <div 
+          className="resume-section fade-in-element"
+          aria-label="Resume Download Section"
+        >
           <h3>Resume</h3>
           <p>For a detailed overview of my experience and qualifications, please download my resume:</p>
           <a 
@@ -198,6 +233,7 @@ const About = () => {
             className="resume-button"
             onClick={trackResumeDownload}
             download
+            aria-label="Download Resume PDF"
           >
             Download Resume (PDF)
           </a>

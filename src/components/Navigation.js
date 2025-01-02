@@ -1,63 +1,61 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/Navigation.css';
 
-function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Navigation = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const handleKeyPress = (e, callback) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      callback();
+    }
+  };
 
-  const handleSmoothScroll = (e, targetId) => {
-    e.preventDefault();
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      setIsMenuOpen(false); // Close mobile menu after clicking
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      setIsOpen(false);
     }
   };
 
   return (
-    <nav className={`navigation ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="nav-container">
-        <a href="#" className="logo" onClick={(e) => handleSmoothScroll(e, 'top')}>
-          JH
-        </a>
+    <nav 
+      className={`navigation ${isOpen ? 'open' : ''}`}
+      role="navigation"
+      aria-label="Main navigation"
+    >
+      <button 
+        className="menu-toggle"
+        onClick={toggleMenu}
+        onKeyPress={(e) => handleKeyPress(e, toggleMenu)}
+        aria-expanded={isOpen}
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+      >
+        <span className="menu-icon"></span>
+      </button>
 
-        <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-          <a href="#about" onClick={(e) => handleSmoothScroll(e, 'about')}>About</a>
-          <a href="#projects" onClick={(e) => handleSmoothScroll(e, 'projects')}>Projects</a>
-          <a href="#contact" onClick={(e) => handleSmoothScroll(e, 'contact')}>Contact</a>
-          <a 
-            href={`${process.env.PUBLIC_URL}/assets/resume/softwareEngineeringResume.pdf`}
-            className="resume-button"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Resume
-          </a>
-        </div>
-
-        <button 
-          className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
+      <ul className="nav-links" role="menubar">
+        {['about', 'projects', 'contact'].map((section) => (
+          <li key={section} role="none">
+            <button
+              onClick={() => scrollToSection(section)}
+              onKeyPress={(e) => handleKeyPress(e, () => scrollToSection(section))}
+              role="menuitem"
+              tabIndex={0}
+              aria-label={`Navigate to ${section} section`}
+            >
+              {section.charAt(0).toUpperCase() + section.slice(1)}
+            </button>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
-}
+};
 
 export default Navigation; 
