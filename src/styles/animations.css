@@ -1,1 +1,37 @@
- 
+/* Import Animate.css */
+@import 'animate.css';
+
+/* Utility classes for animation durations */
+.animate-duration-1 {
+  --animate-duration: 1s;
+}
+
+.animate-duration-2 {
+  --animate-duration: 2s;
+}
+
+/* Utility classes for animation delays */
+.animate-delay-1 {
+  --animate-delay: 1s;
+}
+
+.animate-delay-2 {
+  --animate-delay: 2s;
+}
+
+/* Custom animation class that combines Animate.css classes */
+.animate-on-scroll {
+  visibility: hidden;
+}
+
+.animate-on-scroll.animate__animated {
+  visibility: visible;
+}
+
+/* Optional: Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate__animated {
+    animation: none !important;
+    transition: none !important;
+  }
+} 

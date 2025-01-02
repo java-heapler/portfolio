@@ -13,7 +13,12 @@ import CookieConsent from './components/CookieConsent';
 import Privacy from './components/Privacy';
 import './styles/App.css';
 import './styles/theme.css';
+import './styles/animations.css';
 import { initGA } from './utils/analytics';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   useEffect(() => {

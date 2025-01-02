@@ -1,7 +1,8 @@
 /* projects.css */
 .projects {
-  padding: 4rem 2rem;
-  background: #f8f9fa;
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .projects h2 {
@@ -16,24 +17,31 @@
 }
 
 .search-box {
-  position: relative;
-  max-width: 500px;
-  margin: 0 auto 2rem;
-}
-
-.search-box input {
-  width: 100%;
-  padding: 12px 40px;
-  border: 2px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
   border-radius: 25px;
-  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
   transition: all 0.3s ease;
 }
 
+.search-box:hover, .search-box:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.2);
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  width: 100%;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+
 .search-box input:focus {
-  border-color: #007bff;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
 .search-icon {
@@ -53,47 +61,71 @@
 }
 
 .filter-btn {
-  padding: 8px 16px;
-  border: none;
+  padding: 0.5rem 1rem;
   border-radius: 20px;
-  background: #fff;
-  color: #666;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-color);
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid #ddd;
-}
-
-.filter-btn.active {
-  background: #007bff;
-  color: white;
+  position: relative;
+  overflow: hidden;
 }
 
 .filter-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: var(--primary-color);
+  color: white;
+}
+
+.filter-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
-  padding: 1rem;
+  padding: 2rem 0;
 }
 
 .project-card {
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: var(--primary-color);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(var(--primary-rgb), 0.1),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.project-card:hover::before {
+  transform: translateX(100%);
 }
 
 .project-content {
@@ -126,11 +158,19 @@
 }
 
 .tag {
-  background: #e9ecef;
-  color: #495057;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 0.8rem;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  background: rgba(var(--primary-rgb), 0.1);
+  color: var(--text-color);
+  margin: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: scale(1.05);
 }
 
 .project-tags .tag {
@@ -145,17 +185,21 @@
 }
 
 .github-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #007bff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: var(--card-bg);
+  color: var(--text-color);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .github-link:hover {
-  color: #0056b3;
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
