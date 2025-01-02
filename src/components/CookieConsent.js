@@ -71,12 +71,16 @@ const CookieConsent = () => {
     >
       <div className="cookie-content">
         <p>
-          This website uses cookies to enhance your experience. By continuing to visit this site, you agree to our use of cookies.
+          This website uses cookies to enhance your experience and analyze site usage. 
+          We use essential cookies for basic functionality and optional analytics cookies to understand how you use our site.
           <button className="link-button" onClick={handleCustomize}>Learn more</button>
         </p>
         <div className="cookie-buttons">
+          <button onClick={handleAcceptEssential} className="secondary-button">
+            Essential Only
+          </button>
           <button onClick={handleAcceptAll} className="primary-button">
-            Accept
+            Accept All
           </button>
         </div>
       </div>
