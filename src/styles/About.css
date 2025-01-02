@@ -21,7 +21,8 @@
 
 .about-section {
   padding: 6rem 2rem;
-  background: #ffffff;
+  background: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   scroll-margin-top: 70px;
 }
 
@@ -566,4 +567,26 @@
     margin-top: 2rem;
     padding: 1.5rem 1rem;
   }
+}
+
+button {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #218838, #1e7e34);
+  transform: scale(1.05);
+}
+
+.image-class {
+  transition: transform 0.3s ease;
+}
+
+.image-class:hover {
+  transform: scale(1.05);
 }
