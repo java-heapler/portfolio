@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Home from './components/Home';
 import About from './components/About';
@@ -13,7 +13,7 @@ import './styles/App.css';
 function App() {
   return (
     <ThemeProvider>
-      <Router basename="/portfolio">
+      <Router>
         <div className="app">
           <Navigation />
           <main>
