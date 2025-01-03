@@ -3,6 +3,9 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  touch-action: manipulation;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
 }
 
 :root {
@@ -14,12 +17,24 @@ html {
   --bg-lighter: #233554;
   --white: #e6f1ff;
   --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --scroll-margin: 80px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 768px) {
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
 
 body {
@@ -28,6 +43,16 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }
 
 .app {
@@ -42,6 +67,11 @@ main.container {
   margin: 0 auto;
   padding: 0 2rem;
   width: 100%;
+}
+
+/* Ensure proper scroll margins for all sections */
+section {
+  scroll-margin-top: var(--scroll-margin);
 }
 
 section.section {
@@ -63,6 +93,7 @@ section.section {
 ::-webkit-scrollbar-thumb {
   background: var(--bg-lighter);
   border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -114,11 +145,34 @@ section.section {
   font-size: 1.2rem;
   transition: var(--transition);
   z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .back-to-top:hover {
   background: var(--bg-lighter);
   transform: translateY(-5px);
+}
+
+/* Touch-friendly styles for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .back-to-top {
+    padding: 12px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  a:active,
+  button:active {
+    opacity: 0.7;
+  }
 }
 
 /* Responsive styles */
@@ -137,5 +191,21 @@ section.section {
     right: 1rem;
     width: 40px;
     height: 40px;
+  }
+
+  /* Improve touch targets */
+  .nav-links a,
+  .footer-link {
+    padding: 12px;
+  }
+}
+
+/* Reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

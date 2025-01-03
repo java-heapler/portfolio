@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useSmoothScroll } from '../hooks/useSmoothScroll';
 import '../styles/Navigation.css';
 import ReactGA from 'react-ga4';
 
@@ -9,12 +10,28 @@ const Navigation = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Initialize smooth scroll
+  useSmoothScroll();
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Add throttling to scroll event
+    let ticking = false;
+    const throttledScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+    return () => window.removeEventListener('scroll', throttledScroll);
   }, []);
 
   const handleKeyPress = (e, callback) => {
@@ -26,6 +43,8 @@ const Navigation = () => {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    // Prevent body scroll when menu is open on mobile
+    document.body.style.overflow = !isOpen ? 'hidden' : '';
   };
 
   const scrollToSection = (sectionId) => {
@@ -35,16 +54,31 @@ const Navigation = () => {
       setTimeout(() => {
         const section = document.getElementById(sectionId);
         if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
+          const headerHeight = document.querySelector('.navigation')?.offsetHeight || 0;
+          const elementPosition = section.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }
       }, 100);
     } else {
       const section = document.getElementById(sectionId);
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+        const headerHeight = document.querySelector('.navigation')?.offsetHeight || 0;
+        const elementPosition = section.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
     }
     setIsOpen(false);
+    document.body.style.overflow = '';
   };
 
   const trackResumeClick = () => {
@@ -70,7 +104,7 @@ const Navigation = () => {
             if (location.pathname !== '/') {
               navigate('/');
             } else {
-              scrollToSection('top');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
             }
           }}
           aria-label="Back to top"
@@ -88,7 +122,17 @@ const Navigation = () => {
           <span className="menu-icon"></span>
         </button>
 
-        <div className={`nav-links ${isOpen ? 'active' : ''}`} role="menubar">
+        <div 
+          className={`nav-links ${isOpen ? 'active' : ''}`} 
+          role="menubar"
+          onClick={(e) => {
+            // Close menu when clicking outside on mobile
+            if (e.target === e.currentTarget) {
+              setIsOpen(false);
+              document.body.style.overflow = '';
+            }
+          }}
+        >
           {['about', 'projects', 'contact'].map((section) => (
             <a
               key={section}
