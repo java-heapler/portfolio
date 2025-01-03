@@ -1,15 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { useScreenSize } from '../hooks/useScreenSize';
 import '../styles/Header.css';
+
+// Lazy load the animated gradient component
+const AnimatedGradient = lazy(() => import('./AnimatedGradient'));
 
 function Header() {
   const [isVisible, setIsVisible] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const { isDesktop } = useScreenSize();
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const renderSocialLinks = () => (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+      transition={{ delay: 1.0, duration: 0.5 }}
+      className="social-links"
+    >
+      <a href="https://github.com/java-heapler" target="_blank" rel="noopener noreferrer">
+        <FaGithub />
+      </a>
+      <a href="https://www.linkedin.com/in/joseph-heupler/" target="_blank" rel="noopener noreferrer">
+        <FaLinkedin />
+      </a>
+      <a href="mailto:jheupler@berkeley.edu">
+        <FaEnvelope />
+      </a>
+    </motion.div>
+  );
 
   return (
     <header className="header">
@@ -40,12 +64,19 @@ function Header() {
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
               transition={{ delay: 0.6, duration: 0.5 }}
             >
-              <p className="description">
-                Full-stack developer and UC Berkeley graduate specializing in scalable 
-                applications, cloud architecture, and data-driven solutions. 
-                Experienced in building robust backend systems and deploying 
-                production-ready applications with modern DevOps practices.
-              </p>
+              {isDesktop ? (
+                <p className="description">
+                  Full-stack developer and UC Berkeley graduate specializing in scalable 
+                  applications, cloud architecture, and data-driven solutions. 
+                  Experienced in building robust backend systems and deploying 
+                  production-ready applications with modern DevOps practices.
+                </p>
+              ) : (
+                <p className="description description-mobile">
+                  Full-stack developer and UC Berkeley graduate specializing in scalable 
+                  applications and cloud solutions.
+                </p>
+              )}
             </motion.div>
 
             <motion.div
@@ -58,22 +89,7 @@ function Header() {
               <a href="#contact" className="secondary-btn">Get in Touch</a>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-              transition={{ delay: 1.0, duration: 0.5 }}
-              className="social-links"
-            >
-              <a href="https://github.com/java-heapler" target="_blank" rel="noopener noreferrer">
-                <FaGithub />
-              </a>
-              <a href="https://www.linkedin.com/in/joseph-heupler/" target="_blank" rel="noopener noreferrer">
-                <FaLinkedin />
-              </a>
-              <a href="mailto:jheupler@berkeley.edu">
-                <FaEnvelope />
-              </a>
-            </motion.div>
+            {isDesktop && renderSocialLinks()}
           </div>
 
           <div className={`header-image ${!imageLoaded ? 'loading' : ''}`}>
@@ -110,9 +126,13 @@ function Header() {
         </div>
       </div>
       
-      <div className="header-background">
-        <div className="animated-gradient"></div>
-      </div>
+      {isDesktop && (
+        <div className="header-background">
+          <Suspense fallback={<div className="gradient-placeholder" />}>
+            <AnimatedGradient />
+          </Suspense>
+        </div>
+      )}
     </header>
   );
 }
