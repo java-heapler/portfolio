@@ -99,35 +99,65 @@
   margin-bottom: 3rem;
 }
 
-.button-base {
-  padding: var(--button-padding-desktop);
+@media (max-width: 768px) {
+  .cta-buttons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 1rem 2rem;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  composes: text-base;
+  min-width: 160px;
 }
 
 .primary-btn {
-  composes: button-base;
   background: var(--secondary);
-  color: white;
+  color: var(--primary);
   border: none;
-  box-shadow: 0 4px 12px rgba(0, 112, 243, 0.15);
+  box-shadow: 0 4px 12px rgba(100, 255, 218, 0.15);
 }
 
 .secondary-btn {
-  composes: button-base;
   border: 2px solid var(--secondary);
   color: var(--secondary);
   background: transparent;
-  z-index: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(100, 255, 218, 0.25);
+  background: var(--secondary);
+}
+
+.secondary-btn:hover {
+  color: var(--primary);
+  background: var(--secondary);
+}
+
+@media (max-width: 480px) {
+  .primary-btn,
+  .secondary-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    min-width: 140px;
+  }
+  
+  .cta-buttons {
+    gap: 0.8rem;
+  }
 }
 
 /* Button Hover Effects */

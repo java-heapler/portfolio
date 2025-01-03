@@ -1,5 +1,6 @@
 // src/components/Projects.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSwipeable } from 'react-swipeable';
 import { motion } from 'framer-motion';
 import { FaGithub, FaSearch } from 'react-icons/fa';
 import '../styles/Projects.css';
@@ -44,6 +45,32 @@ const projectData = [
 function Projects() {
   const [filter, setFilter] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      if (isMobile && currentIndex < projectData.length - 1) {
+        setCurrentIndex(currentIndex + 1);
+      }
+    },
+    onSwipedRight: () => {
+      if (isMobile && currentIndex > 0) {
+        setCurrentIndex(currentIndex - 1);
+      }
+    },
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true
+  });
 
   const filteredProjects = projectData.filter(project => {
     const matchesFilter = filter === 'All' || project.categories.includes(filter);
@@ -51,6 +78,36 @@ function Projects() {
                          project.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesFilter && matchesSearch;
   });
+
+  const renderProjectCard = (project, index) => (
+    <motion.div
+      key={project.id}
+      className="project-card"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+    >
+      <div className="project-content">
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+        <div className="project-tags">
+          {project.categories.map((tag, idx) => (
+            <span key={idx} className="tag">{tag}</span>
+          ))}
+        </div>
+      </div>
+      <div className="project-footer">
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="github-link"
+        >
+          <FaGithub /> View Code
+        </a>
+      </div>
+    </motion.div>
+  );
 
   return (
     <section id="projects" className="section projects">
@@ -85,31 +142,38 @@ function Projects() {
           </div>
         </div>
 
-        <div className="projects-grid">
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="project-card"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <div className="project-content">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="project-tags">
-                  {project.categories.map((tag, idx) => (
-                    <span key={idx} className="tag">{tag}</span>
-                  ))}
-                </div>
+        <div className="projects-container" {...handlers}>
+          {isMobile ? (
+            <div className="projects-mobile-view">
+              <div 
+                className="project-slide"
+                style={{
+                  transform: `translateX(-${currentIndex * 100}%)`,
+                  transition: 'transform 0.3s ease-out'
+                }}
+              >
+                {filteredProjects.map((project, index) => (
+                  <div key={project.id} className="project-slide-item">
+                    {renderProjectCard(project, index)}
+                  </div>
+                ))}
               </div>
-              <div className="project-footer">
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="github-link">
-                  <FaGithub /> View Code
-                </a>
+              <div className="project-indicators">
+                {filteredProjects.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`indicator ${index === currentIndex ? 'active' : ''}`}
+                    onClick={() => setCurrentIndex(index)}
+                    aria-label={`Go to project ${index + 1}`}
+                  />
+                ))}
               </div>
-            </motion.div>
-          ))}
+            </div>
+          ) : (
+            <div className="projects-grid">
+              {filteredProjects.map((project, index) => renderProjectCard(project, index))}
+            </div>
+          )}
         </div>
       </motion.div>
     </section>

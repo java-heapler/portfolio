@@ -28,12 +28,13 @@
   justify-content: space-between;
   align-items: center;
   height: 4rem;
+  position: relative;
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #007bff;
+  color: var(--secondary);
   text-decoration: none;
   transition: transform 0.3s ease;
   z-index: 1001;
@@ -50,7 +51,7 @@
 }
 
 .nav-links a {
-  color: #333;
+  color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
@@ -71,7 +72,7 @@
   left: 50%;
   width: 0;
   height: 2px;
-  background: #007bff;
+  background: var(--secondary);
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
@@ -81,19 +82,18 @@
 }
 
 .resume-button {
-  background: #007bff;
-  color: white !important;
+  background: var(--secondary);
+  color: var(--primary) !important;
   padding: 0.5rem 1.5rem !important;
   border-radius: 25px !important;
   font-weight: 600 !important;
   transition: all 0.3s ease !important;
-  border: 2px solid transparent;
+  border: 2px solid var(--secondary);
 }
 
 .resume-button:hover {
   background: transparent;
-  color: #007bff !important;
-  border-color: #007bff;
+  color: var(--secondary) !important;
   transform: translateY(-2px);
 }
 
@@ -108,13 +108,14 @@
   cursor: pointer;
   padding: 0.5rem;
   z-index: 1001;
+  position: relative;
 }
 
 .menu-icon {
   display: block;
   width: 25px;
   height: 2px;
-  background: #333;
+  background: var(--text-primary);
   position: relative;
   transition: all 0.3s ease;
 }
@@ -158,11 +159,13 @@
 
 @media (max-width: 768px) {
   .nav-container {
+    padding: 0 1.5rem;
     height: 3.5rem;
   }
 
   .menu-toggle {
     display: block;
+    margin-left: auto;
   }
 
   .nav-links {
@@ -203,7 +206,7 @@
   }
 
   .resume-button {
-    margin-top: 2rem !important;
+    margin-top: 1rem !important;
     padding: 0.75rem 2rem !important;
     font-size: 1.1rem !important;
     width: auto;
@@ -212,11 +215,6 @@
   .logo {
     font-size: 1.3rem;
   }
-}
-
-/* Ensure proper spacing for the first section */
-main {
-  padding-top: 5rem;
 }
 
 @media (max-width: 480px) {
