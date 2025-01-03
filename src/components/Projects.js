@@ -57,21 +57,6 @@ function Projects() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const handlers = useSwipeable({
-    onSwipedLeft: () => {
-      if (isMobile && currentIndex < projectData.length - 1) {
-        setCurrentIndex(currentIndex + 1);
-      }
-    },
-    onSwipedRight: () => {
-      if (isMobile && currentIndex > 0) {
-        setCurrentIndex(currentIndex - 1);
-      }
-    },
-    preventDefaultTouchmoveEvent: true,
-    trackMouse: true
-  });
-
   const filteredProjects = projectData.filter(project => {
     const matchesFilter = filter === 'All' || project.categories.includes(filter);
     const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -109,6 +94,24 @@ function Projects() {
     </motion.div>
   );
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      if (isMobile && currentIndex < filteredProjects.length - 1) {
+        setCurrentIndex(currentIndex + 1);
+      }
+    },
+    onSwipedRight: () => {
+      if (isMobile && currentIndex > 0) {
+        setCurrentIndex(currentIndex - 1);
+      }
+    },
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+    trackTouch: true,
+    delta: 10,
+    swipeDuration: 500
+  });
+
   return (
     <section id="projects" className="section projects">
       <motion.div
@@ -142,21 +145,24 @@ function Projects() {
           </div>
         </div>
 
-        <div className="projects-container" {...handlers}>
+        <div className="projects-container">
           {isMobile ? (
-            <div className="projects-mobile-view">
+            <div className="projects-mobile-view" {...handlers}>
               <div 
                 className="project-slide"
                 style={{
                   transform: `translateX(-${currentIndex * 100}%)`,
-                  transition: 'transform 0.3s ease-out'
+                  transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                 }}
               >
                 {filteredProjects.map((project, index) => (
-                  <div key={project.id} className="project-slide-item">
+                  <div key={index} className="project-slide-item">
                     {renderProjectCard(project, index)}
                   </div>
                 ))}
+              </div>
+              <div className="swipe-instruction">
+                Swipe left or right to navigate projects
               </div>
               <div className="project-indicators">
                 {filteredProjects.map((_, index) => (
