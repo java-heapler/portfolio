@@ -524,6 +524,7 @@
 
 .project-slide-item {
   min-width: 100%;
+  width: 100%;
   flex-shrink: 0;
   padding: 0 1rem;
   box-sizing: border-box;
@@ -575,46 +576,93 @@
     height: auto;
     min-height: 300px;
     transform: none !important;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .project-content {
-    padding: 1.5rem;
+    padding: 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .project-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 0.8rem;
     min-height: auto;
+    line-height: 1.3;
   }
 
   .project-card p {
     font-size: 0.95rem;
     margin-bottom: 1rem;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-height: 1.5;
+    max-width: 100%;
   }
 
   .project-tags {
     gap: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
   }
 
   .tag {
     font-size: 0.8rem;
     padding: 0.3rem 0.8rem;
+    white-space: nowrap;
   }
 
   .project-footer {
-    padding: 1rem 1.5rem;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .github-link {
     font-size: 0.9rem;
     padding: 0.5rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
   }
 
   .project-slide-item {
     opacity: 1;
     transition: opacity 0.3s ease;
+    width: 100vw;
+    max-width: 100vw;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    min-height: 280px;
+  }
+
+  .project-content {
+    padding: 1rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .project-card p {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  .project-slide-item {
+    padding: 0 0.75rem;
   }
 }
 

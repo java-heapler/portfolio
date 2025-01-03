@@ -108,8 +108,9 @@ function Projects() {
     preventDefaultTouchmoveEvent: true,
     trackMouse: true,
     trackTouch: true,
-    delta: 10,
-    swipeDuration: 500
+    delta: 50,
+    swipeDuration: 250,
+    touchEventOptions: { passive: true }
   });
 
   return (
@@ -152,11 +153,19 @@ function Projects() {
                 className="project-slide"
                 style={{
                   transform: `translateX(-${currentIndex * 100}%)`,
-                  transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+                  transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  width: `${filteredProjects.length * 100}%`,
+                  display: 'flex'
                 }}
               >
                 {filteredProjects.map((project, index) => (
-                  <div key={index} className="project-slide-item">
+                  <div 
+                    key={index} 
+                    className="project-slide-item"
+                    style={{
+                      width: `${100 / filteredProjects.length}%`
+                    }}
+                  >
                     {renderProjectCard(project, index)}
                   </div>
                 ))}
