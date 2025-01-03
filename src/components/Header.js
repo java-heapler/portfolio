@@ -5,6 +5,7 @@ import '../styles/Header.css';
 
 function Header() {
   const [isVisible, setIsVisible] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -17,8 +18,8 @@ function Header() {
           <div className="header-text">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
             >
               <h1>
                 <span className="greeting">Hello, I'm</span>
@@ -28,16 +29,16 @@ function Header() {
             
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
             >
               <h2 className="title">Software Engineer</h2>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
             >
               <p className="description">
                 Full-stack developer and UC Berkeley graduate specializing in scalable 
@@ -49,8 +50,8 @@ function Header() {
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
               className="cta-buttons"
             >
               <a href="#projects" className="primary-btn">View Projects</a>
@@ -59,8 +60,8 @@ function Header() {
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.0 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+              transition={{ delay: 1.0, duration: 0.5 }}
               className="social-links"
             >
               <a href="https://github.com/java-heapler" target="_blank" rel="noopener noreferrer">
@@ -75,7 +76,7 @@ function Header() {
             </motion.div>
           </div>
 
-          <div className="header-image">
+          <div className={`header-image ${!imageLoaded ? 'loading' : ''}`}>
             <motion.picture>
               <source
                 media="(min-width: 1024px)"
@@ -93,15 +94,16 @@ function Header() {
                 sizes="200px"
               />
               <motion.img 
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: imageLoaded ? 1 : 0 }}
+                transition={{ duration: 0.5 }}
                 src={`${process.env.PUBLIC_URL}/profile.jpg`} 
                 alt="Joseph Heupler" 
                 className="profile-image"
                 loading="eager"
                 width="300"
                 height="300"
+                onLoad={() => setImageLoaded(true)}
               />
             </motion.picture>
           </div>
