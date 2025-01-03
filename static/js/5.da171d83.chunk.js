@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkjoe_heupler_portfolio=self.webpackChunkjoe_heupler_portfolio||[]).push([[5],{5:(e,t,o)=>{o.r(t),o.d(t,{default:()=>s});o(43);var l=o(204),r=o(902),h=o(579);const s=()=>{const{theme:e,toggleTheme:t}=(0,r.DP)(),o="dark"===e;return(0,h.jsx)("button",{onClick:t,className:"theme-toggle","aria-label":o?"Switch to light mode":"Switch to dark mode",children:o?(0,h.jsx)(l.wQq,{}):(0,h.jsx)(l.V6H,{})})}}}]);
-//# sourceMappingURL=5.da171d83.chunk.js.map
