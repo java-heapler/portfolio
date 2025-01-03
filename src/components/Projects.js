@@ -154,7 +154,7 @@ function Projects() {
                 style={{
                   transform: `translateX(-${currentIndex * 100}%)`,
                   transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                  width: `${filteredProjects.length * 100}%`,
+                  width: '100%',
                   display: 'flex'
                 }}
               >
@@ -163,7 +163,7 @@ function Projects() {
                     key={index} 
                     className="project-slide-item"
                     style={{
-                      width: `${100 / filteredProjects.length}%`
+                      width: '100%'
                     }}
                   >
                     {renderProjectCard(project, index)}
