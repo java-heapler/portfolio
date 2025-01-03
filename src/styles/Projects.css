@@ -94,11 +94,14 @@
 .project-card {
   background: var(--card-bg);
   border-radius: 12px;
-  padding: 1.5rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 350px;
 }
 
 .project-card:hover {
@@ -131,30 +134,35 @@
 .project-content {
   padding: 1.5rem;
   flex-grow: 1;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(248, 249, 250, 0.95) 100%
-  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .project-card h3 {
   margin: 0 0 1rem;
-  color: #2d3436;
+  color: var(--text-primary);
   font-size: 1.25rem;
+  min-height: 2.5rem;
 }
 
 .project-card p {
-  color: #636e72;
+  color: var(--text-secondary);
   margin: 0 0 1rem;
   line-height: 1.6;
+  flex-grow: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
 .tag {
@@ -181,7 +189,9 @@
 
 .project-footer {
   padding: 1rem 1.5rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border-color);
+  background: var(--card-bg);
+  margin-top: auto;
 }
 
 .github-link {
@@ -194,6 +204,8 @@
   color: var(--text-color);
   text-decoration: none;
   transition: all 0.3s ease;
+  width: 100%;
+  justify-content: center;
 }
 
 .github-link:hover {
@@ -324,4 +336,18 @@
 
 [data-theme='dark'] .github-link:hover {
   color: var(--accent, #357abd);
+}
+
+/* Ensure all cards in the same row have equal height */
+.projects-grid::before {
+  content: '';
+  width: 0;
+  padding-bottom: 100%;
+  grid-row: 1/1;
+  grid-column: 1/1;
+}
+
+.projects-grid > *:first-child {
+  grid-row: 1/1;
+  grid-column: 1/1;
 }
