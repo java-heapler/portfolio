@@ -200,7 +200,58 @@ section.section {
   }
 }
 
-/* Reduce motion if user prefers */
+/* Orientation change handling */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .header {
+    min-height: auto;
+    padding: 2rem 0;
+  }
+
+  .header-main {
+    min-height: auto;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .projects-mobile-view {
+    height: auto;
+  }
+
+  .nav-links {
+    padding: 2rem;
+  }
+}
+
+/* Improve touch targets */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+}
+
+/* Ensure proper scaling */
+@supports (padding: max(0px)) {
+  .header,
+  .nav-container,
+  .footer {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+/* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

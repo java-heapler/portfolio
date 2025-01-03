@@ -114,31 +114,35 @@ function Projects() {
   });
 
   return (
-    <section id="projects" className="section projects">
+    <section id="projects" className="section projects" aria-label="Projects">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h2>Projects</h2>
+        <h2 tabIndex="0">Projects</h2>
         
         <div className="projects-controls">
-          <div className="search-box">
-            <FaSearch className="search-icon" />
+          <div className="search-box" role="search">
+            <FaSearch className="search-icon" aria-hidden="true" />
             <input
               type="text"
               placeholder="Search projects..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              aria-label="Search projects"
             />
           </div>
           
-          <div className="category-filters">
+          <div className="category-filters" role="tablist" aria-label="Project categories">
             {categories.map(category => (
               <button
                 key={category}
                 className={`filter-btn ${filter === category ? 'active' : ''}`}
                 onClick={() => setFilter(category)}
+                role="tab"
+                aria-selected={filter === category}
+                aria-controls="projects-grid"
               >
                 {category}
               </button>
@@ -148,7 +152,12 @@ function Projects() {
 
         <div className="projects-container">
           {isMobile ? (
-            <div className="projects-mobile-view" {...handlers}>
+            <div 
+              className="projects-mobile-view" 
+              {...handlers}
+              role="region"
+              aria-label="Project slideshow"
+            >
               <div 
                 className="project-slide"
                 style={{
@@ -157,36 +166,55 @@ function Projects() {
                   width: '100%',
                   display: 'flex'
                 }}
+                role="list"
               >
                 {filteredProjects.map((project, index) => (
                   <div 
                     key={index} 
                     className="project-slide-item"
-                    style={{
-                      width: '100%'
-                    }}
+                    style={{ width: '100%' }}
+                    role="listitem"
+                    aria-label={`Project ${index + 1} of ${filteredProjects.length}`}
                   >
                     {renderProjectCard(project, index)}
                   </div>
                 ))}
               </div>
-              <div className="swipe-instruction">
+              <div 
+                className="swipe-instruction" 
+                aria-live="polite"
+              >
                 Swipe left or right to navigate projects
               </div>
-              <div className="project-indicators">
+              <div 
+                className="project-indicators" 
+                role="tablist" 
+                aria-label="Project navigation"
+              >
                 {filteredProjects.map((_, index) => (
                   <button
                     key={index}
                     className={`indicator ${index === currentIndex ? 'active' : ''}`}
                     onClick={() => setCurrentIndex(index)}
                     aria-label={`Go to project ${index + 1}`}
+                    role="tab"
+                    aria-selected={index === currentIndex}
+                    tabIndex={index === currentIndex ? 0 : -1}
                   />
                 ))}
               </div>
             </div>
           ) : (
-            <div className="projects-grid">
-              {filteredProjects.map((project, index) => renderProjectCard(project, index))}
+            <div 
+              className="projects-grid" 
+              role="list" 
+              aria-label="Projects grid"
+            >
+              {filteredProjects.map((project, index) => (
+                <div key={index} role="listitem">
+                  {renderProjectCard(project, index)}
+                </div>
+              ))}
             </div>
           )}
         </div>
