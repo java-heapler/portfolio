@@ -76,14 +76,34 @@ function Header() {
           </div>
 
           <div className="header-image">
-            <motion.img 
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6 }}
-              src={`${process.env.PUBLIC_URL}/profile.jpg`} 
-              alt="Joseph Heupler" 
-              className="profile-image" 
-            />
+            <motion.picture>
+              <source
+                media="(min-width: 1024px)"
+                srcSet={`${process.env.PUBLIC_URL}/profile.jpg`}
+                sizes="300px"
+              />
+              <source
+                media="(min-width: 768px)"
+                srcSet={`${process.env.PUBLIC_URL}/profile.jpg`}
+                sizes="250px"
+              />
+              <source
+                media="(max-width: 767px)"
+                srcSet={`${process.env.PUBLIC_URL}/profile.jpg`}
+                sizes="200px"
+              />
+              <motion.img 
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+                src={`${process.env.PUBLIC_URL}/profile.jpg`} 
+                alt="Joseph Heupler" 
+                className="profile-image"
+                loading="eager"
+                width="300"
+                height="300"
+              />
+            </motion.picture>
           </div>
         </div>
       </div>
