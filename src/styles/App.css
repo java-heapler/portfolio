@@ -183,7 +183,7 @@ section.section {
   }
   
   .container {
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
   
   .back-to-top {
@@ -197,6 +197,15 @@ section.section {
   .nav-links a,
   .footer-link {
     padding: 12px;
+  }
+
+  .navigation {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .app {
+    padding: 0;
   }
 }
 

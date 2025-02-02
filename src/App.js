@@ -9,6 +9,7 @@ import './styles/animations.css';
 import { initGA } from './utils/analytics';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ErrorBoundary from './components/ErrorBoundary';
 const Header = lazy(() => import('./components/Header'));
 const About = lazy(() => import('./components/About'));
 const Projects = lazy(() => import('./components/Projects'));
@@ -27,26 +28,28 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        <div className="app">
-          <Navigation />
-          <Suspense fallback={<div>Loading...</div>}>
-            <Routes>
-              <Route path="/" element={
-                <main className="container">
-                  <Header />
-                  <About />
-                  <Projects />
-                  <Contact />
-                </main>
-              } />
-              <Route path="/privacy" element={<Privacy />} />
-            </Routes>
-            <Footer />
-            <ThemeToggle />
-            <BackToTop />
-            <CookieConsent />
-          </Suspense>
-        </div>
+        <ErrorBoundary>
+          <div className="app">
+            <Navigation />
+            <Suspense fallback={<div>Loading...</div>}>
+              <Routes>
+                <Route path="/" element={
+                  <main className="container">
+                    <Header />
+                    <About />
+                    <Projects />
+                    <Contact />
+                  </main>
+                } />
+                <Route path="/privacy" element={<Privacy />} />
+              </Routes>
+              <Footer />
+              <ThemeToggle />
+              <BackToTop />
+              <CookieConsent />
+            </Suspense>
+          </div>
+        </ErrorBoundary>
       </Router>
     </ThemeProvider>
   );
