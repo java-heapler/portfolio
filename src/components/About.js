@@ -110,12 +110,7 @@ const About = () => {
   };
 
   return (
-    <section 
-      id="about" 
-      className="about-section" 
-      ref={sectionRef}
-      aria-label="About Me Section"
-    >
+    <section id="about" className="about-section" ref={sectionRef} aria-label="About Me Section">
       <div className="about-content">
         <LoadingAnimation isLoading={loading} />
         <ReadingProgress />
