@@ -101,24 +101,24 @@ function Header() {
             <motion.picture>
               <source
                 media="(min-width: 1024px)"
-                srcSet={`${process.env.PUBLIC_URL}/profile.jpg`}
+                srcSet={`${process.env.PUBLIC_URL}/profile.webp`}
                 sizes="300px"
               />
               <source
                 media="(min-width: 768px)"
-                srcSet={`${process.env.PUBLIC_URL}/profile.jpg`}
+                srcSet={`${process.env.PUBLIC_URL}/profile.webp`}
                 sizes="250px"
               />
               <source
                 media="(max-width: 767px)"
-                srcSet={`${process.env.PUBLIC_URL}/profile.jpg`}
+                srcSet={`${process.env.PUBLIC_URL}/profile.webp`}
                 sizes="200px"
               />
               <motion.img 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: imageLoaded ? 1 : 0 }}
                 transition={{ duration: 0.5 }}
-                src={`${process.env.PUBLIC_URL}/profile.jpg`} 
+                src={`${process.env.PUBLIC_URL}/profile.webp`} 
                 alt="Joseph Heupler" 
                 className="profile-image"
                 loading="eager"

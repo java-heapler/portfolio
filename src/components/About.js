@@ -169,28 +169,27 @@ const About = () => {
             >
               <h4>{category}</h4>
               <p className="category-description">{description}</p>
-              <div 
-                className="skills-list"
-                role="list"
-                aria-label={`${category} Skills`}
-              >
+              <ul className="skills-list" aria-label={`${category} Skills`}>
                 {skills.map((skill, skillIndex) => (
-                  <div 
+                  <li 
                     key={skill.name} 
                     className={`skill-item ${getDelayClass(skillIndex)}`}
-                    onClick={() => trackSkillClick(skill.name)}
-                    onKeyPress={(e) => handleKeyPress(e, () => trackSkillClick(skill.name))}
-                    role="button"
-                    tabIndex={0}
                     aria-label={`${skill.name} Skill`}
                   >
-                    <Suspense fallback={<div className="skill-icon-placeholder" aria-hidden="true" />}>
-                      <SkillIcon icon={skill.icon} name={skill.name} />
-                    </Suspense>
-                    <span>{skill.name}</span>
-                  </div>
+                    <div 
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => trackSkillClick(skill.name)}
+                      onKeyPress={(e) => handleKeyPress(e, () => trackSkillClick(skill.name))}
+                    >
+                      <Suspense fallback={<div className="skill-icon-placeholder" aria-hidden="true" />}>
+                        <SkillIcon icon={skill.icon} name={skill.name} />
+                      </Suspense>
+                      <span>{skill.name}</span>
+                    </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
         </div>
