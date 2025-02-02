@@ -218,3 +218,53 @@ section.section {
     scroll-behavior: auto !important;
   }
 }
+
+/* Additional Mobile Optimizations */
+@media (max-width: 480px) {
+  header.header {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .header-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .header-text .title {
+    font-size: 1.6rem;
+  }
+
+  .cta-buttons a {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* Additional Mobile Typography and Accessibility Enhancements */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  .skip-link:focus {
+    top: 0 !important;
+  }
+}
+
+/* FontSizeToggle Styles */
+.font-size-toggle {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 9999;
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 480px) {
+  .font-size-toggle {
+    bottom: 60px;
+    right: 10px;
+    padding: 0.4rem;
+  }
+}

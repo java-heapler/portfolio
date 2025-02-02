@@ -11,7 +11,7 @@ const FontSizeToggle = () => {
   const decreaseFontSize = () => setFontSize(prev => Math.max(prev - 1, 12));
 
   return (
-    <div style={{ position: 'fixed', bottom: '80px', right: '20px', zIndex: 9999, background: '#fff', padding: '0.5rem', borderRadius: '4px', boxShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
+    <div className="font-size-toggle">
       <button onClick={decreaseFontSize} style={{ marginRight: '0.5rem' }}>A-</button>
       <button onClick={increaseFontSize}>A+</button>
     </div>
