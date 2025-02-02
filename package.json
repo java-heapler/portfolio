@@ -1,7 +1,7 @@
 {
   "name": "joe-heupler-portfolio",
   "version": "1.0.0",
-  "homepage": "https://java-heupler.github.io/portfolio",
+  "homepage": "https://java-heapler.github.io",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
