@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import LazyImage from './LazyImage';
 
 const SkillIcon = ({ icon, name }) => {
   const { isDark } = useTheme();
@@ -21,16 +22,14 @@ const SkillIcon = ({ icon, name }) => {
   }, [isDark, darkModeIconPath, lightModeIconPath, name]);
 
   return (
-    <img 
+    <LazyImage
       src={isDark ? darkModeIconPath : lightModeIconPath}
       alt={`${name} icon`}
       className="skill-icon"
-      loading="lazy"
       width="32"
       height="32"
       onError={(e) => {
         console.error(`Failed to load icon: ${e.target.src}`);
-        // If dark mode icon fails to load, fallback to light mode icon
         if (isDark && e.target.src !== lightModeIconPath) {
           console.log(`Falling back to light mode icon for ${name}`);
           e.target.src = lightModeIconPath;
