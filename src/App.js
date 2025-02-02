@@ -3,6 +3,12 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Navigation from './components/Navigation';
 import Privacy from './components/Privacy';
+import './styles/App.css';
+import './styles/theme.css';
+import './styles/animations.css';
+import { initGA } from './utils/analytics';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 const Header = lazy(() => import('./components/Header'));
 const About = lazy(() => import('./components/About'));
 const Projects = lazy(() => import('./components/Projects'));
@@ -11,13 +17,6 @@ const Footer = lazy(() => import('./components/Footer'));
 const ThemeToggle = lazy(() => import('./components/ThemeToggle'));
 const BackToTop = lazy(() => import('./components/BackToTop'));
 const CookieConsent = lazy(() => import('./components/CookieConsent'));
-import './styles/App.css';
-import './styles/theme.css';
-import './styles/animations.css';
-import { initGA } from './utils/analytics';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
