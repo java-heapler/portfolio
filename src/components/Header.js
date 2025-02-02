@@ -98,35 +98,34 @@ function Header() {
           </div>
 
           <div className={`header-image ${!imageLoaded ? 'loading' : ''}`}>
-            <motion.picture>
-              <source
-                media="(min-width: 1024px)"
-                srcSet={`${process.env.PUBLIC_URL}/profile.webp`}
-                sizes="300px"
-              />
-              <source
-                media="(min-width: 768px)"
-                srcSet={`${process.env.PUBLIC_URL}/profile.webp`}
-                sizes="250px"
-              />
-              <source
-                media="(max-width: 767px)"
-                srcSet={`${process.env.PUBLIC_URL}/profile.webp`}
-                sizes="200px"
-              />
-              <motion.img 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: imageLoaded ? 1 : 0 }}
-                transition={{ duration: 0.5 }}
-                src={`${process.env.PUBLIC_URL}/profile.webp`} 
-                alt="Joseph Heupler" 
-                className="profile-image"
-                loading="eager"
-                width="300"
-                height="300"
-                onLoad={() => setImageLoaded(true)}
-              />
-            </motion.picture>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: imageLoaded ? 1 : 0 }} transition={{ duration: 0.5 }}>
+              <picture>
+                <source
+                  media="(min-width: 1024px)"
+                  srcSet={`${process.env.PUBLIC_URL}/profile.jpg`}
+                  sizes="300px"
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcSet={`${process.env.PUBLIC_URL}/profile.jpg`}
+                  sizes="250px"
+                />
+                <source
+                  media="(max-width: 767px)"
+                  srcSet={`${process.env.PUBLIC_URL}/profile.jpg`}
+                  sizes="200px"
+                />
+                <img 
+                  src={`${process.env.PUBLIC_URL}/profile.jpg`} 
+                  alt="Joseph Heupler" 
+                  className="profile-image"
+                  loading="eager"
+                  width="300"
+                  height="300"
+                  onLoad={() => setImageLoaded(true)}
+                />
+              </picture>
+            </motion.div>
           </div>
         </div>
       </div>
