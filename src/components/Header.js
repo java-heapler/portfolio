@@ -1,8 +1,9 @@
-import React, { useEffect, useState, lazy, Suspense } from 'react';
+import React, { useEffect, useState, lazy, Suspense, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { useScreenSize } from '../hooks/useScreenSize';
 import '../styles/Header.css';
+import { gsap } from 'gsap';
 
 // Lazy load the animated gradient component
 const AnimatedGradient = lazy(() => import('./AnimatedGradient'));
@@ -11,9 +12,13 @@ function Header() {
   const [isVisible, setIsVisible] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const { isDesktop } = useScreenSize();
+  const headerRef = useRef(null);
 
   useEffect(() => {
     setIsVisible(true);
+    if(headerRef.current) {
+      gsap.fromTo(headerRef.current, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 1.2 });
+    }
   }, []);
 
   const renderSocialLinks = () => (
@@ -36,7 +41,7 @@ function Header() {
   );
 
   return (
-    <header className="header">
+    <header ref={headerRef} className="header">
       <div className="header-content">
         <div className="header-main">
           <div className="header-text">
