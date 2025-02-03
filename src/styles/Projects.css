@@ -560,8 +560,7 @@
   color: var(--text-secondary);
   font-size: 0.9rem;
   margin: 1rem 0;
-  opacity: 0.7;
-  font-style: italic;
+  /* opacity removed for better contrast */
 }
 
 /* Project card adjustments for mobile */

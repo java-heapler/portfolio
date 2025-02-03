@@ -38,13 +38,13 @@ function Header() {
       transition={{ delay: 1.0, duration: 0.5 }}
       className="social-links"
     >
-      <a href="https://github.com/java-heapler" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/java-heapler" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
         <FaGithub />
       </a>
-      <a href="https://www.linkedin.com/in/joseph-heupler/" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com/in/joseph-heupler/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
         <FaLinkedin />
       </a>
-      <a href="mailto:jheupler@berkeley.edu">
+      <a href="mailto:jheupler@berkeley.edu" aria-label="Email">
         <FaEnvelope />
       </a>
     </motion.div>

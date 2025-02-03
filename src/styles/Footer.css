@@ -33,22 +33,22 @@
 }
 
 .footer-link {
-  color: #007bff;
+  color: #0056b3;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-  color: #0056b3;
+  color: #003f7f;
   text-decoration: underline;
 }
 
 [data-theme='dark'] .footer-link {
-  color: #4a9eff;
+  color: #66b2ff;
 }
 
 [data-theme='dark'] .footer-link:hover {
-  color: #77b6ff;
+  color: #3399ff;
 }
 
 @media (max-width: 768px) {
