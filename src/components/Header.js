@@ -105,6 +105,7 @@ function Header() {
           <div className={`header-image ${!imageLoaded ? 'loading' : ''}`}>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: imageLoaded ? 1 : 0 }} transition={{ duration: 0.5 }}>
               <picture>
+                <source srcSet={`${process.env.PUBLIC_URL}/profile-optimized.avif`} type="image/avif" />
                 <source srcSet={`${process.env.PUBLIC_URL}/profile-optimized.jpg`} type="image/jpeg" />
                 <img 
                   ref={imageRef}
