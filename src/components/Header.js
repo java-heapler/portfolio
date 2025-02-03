@@ -105,10 +105,10 @@ function Header() {
           <div className={`header-image ${!imageLoaded ? 'loading' : ''}`}>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: imageLoaded ? 1 : 0 }} transition={{ duration: 0.5 }}>
               <picture>
-                <source srcSet={`${process.env.PUBLIC_URL}/profile.webp`} type="image/webp" />
+                <source srcSet={`${process.env.PUBLIC_URL}/profile-optimized.jpg`} type="image/jpeg" />
                 <img 
                   ref={imageRef}
-                  src={`${process.env.PUBLIC_URL}/profile_standing.png`} 
+                  src={`${process.env.PUBLIC_URL}/profile-fallback.jpg`} 
                   alt="Joseph Heupler" 
                   className="profile-image"
                   loading="eager"
