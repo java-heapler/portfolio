@@ -13,12 +13,22 @@ function Header() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const { isDesktop } = useScreenSize();
   const headerRef = useRef(null);
+  const imageRef = useRef(null);
 
   useEffect(() => {
     setIsVisible(true);
-    if(headerRef.current) {
+    if (headerRef.current) {
       gsap.fromTo(headerRef.current, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 1.2 });
     }
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (imageRef.current && imageRef.current.complete) {
+        setImageLoaded(true);
+      }
+    }, 100);
+    return () => clearTimeout(timer);
   }, []);
 
   const renderSocialLinks = () => (
@@ -116,6 +126,7 @@ function Header() {
                   sizes="200px"
                 />
                 <img 
+                  ref={imageRef}
                   src={`${process.env.PUBLIC_URL}/profile.jpg`} 
                   alt="Joseph Heupler" 
                   className="profile-image"

@@ -43,7 +43,7 @@ textarea {
 }
 
 button {
-  background: #007bff;
+  background: #003f7f;
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -54,7 +54,7 @@ button {
 }
 
 button:hover {
-  background: #0056b3;
+  background: #002f5e;
 }
 
 @media (max-width: 768px) {

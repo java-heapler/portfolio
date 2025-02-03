@@ -188,7 +188,7 @@
 .resume-button {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background: #007bff;
+  background: #003f7f;
   color: white;
   text-decoration: none;
   border-radius: 6px;
@@ -197,7 +197,7 @@
 }
 
 .resume-button:hover {
-  background: #0056b3;
+  background: #002f5e;
   transform: translateY(-2px);
 }
 
