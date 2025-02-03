@@ -112,22 +112,22 @@ function Header() {
               <picture>
                 <source
                   media="(min-width: 1024px)"
-                  srcSet={`${process.env.PUBLIC_URL}/profile.jpg`}
+                  srcSet={`${process.env.PUBLIC_URL}/profile.webp`}
                   sizes="300px"
                 />
                 <source
                   media="(min-width: 768px)"
-                  srcSet={`${process.env.PUBLIC_URL}/profile.jpg`}
+                  srcSet={`${process.env.PUBLIC_URL}/profile.webp`}
                   sizes="250px"
                 />
                 <source
                   media="(max-width: 767px)"
-                  srcSet={`${process.env.PUBLIC_URL}/profile.jpg`}
+                  srcSet={`${process.env.PUBLIC_URL}/profile.webp`}
                   sizes="200px"
                 />
                 <img 
                   ref={imageRef}
-                  src={`${process.env.PUBLIC_URL}/profile.jpg`} 
+                  src={`${process.env.PUBLIC_URL}/profile.webp`} 
                   alt="Joseph Heupler" 
                   className="profile-image"
                   loading="eager"
