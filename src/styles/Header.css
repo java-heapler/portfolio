@@ -83,6 +83,8 @@
   max-width: 540px;
   margin-bottom: 3rem;
   line-height: 1.6;
+  will-change: opacity;
+  contain: content;
 }
 
 .description-mobile {
@@ -90,6 +92,8 @@
   font-size: 0.9rem;
   margin-bottom: 1.5rem;
   max-width: 100%;
+  will-change: opacity;
+  contain: content;
 }
 
 /* Buttons */
@@ -242,12 +246,8 @@ picture {
 
 /* Loading States */
 .header-image.loading {
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 0.3; }
+  opacity: 0.6;
+  transition: opacity 0.3s ease-out;
 }
 
 /* Background Effects */
@@ -431,4 +431,10 @@ picture {
 
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Optimize loading states */
+[data-priority="high"] {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 100px;
 }

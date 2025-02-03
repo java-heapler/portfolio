@@ -58,7 +58,7 @@ function Header() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
+              transition={{ duration: 0.3 }}
             >
               <h1>
                 <span className="greeting">Hello, I'm</span>
@@ -69,35 +69,30 @@ function Header() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
+              transition={{ delay: 0.1, duration: 0.3 }}
             >
               <h2 className="title">Software Engineer</h2>
             </motion.div>
             
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-            >
-              {isDesktop ? (
-                <p className="description">
-                  Full-stack developer and UC Berkeley graduate specializing in scalable 
-                  applications, cloud architecture, and data-driven solutions. 
-                  Experienced in building robust backend systems and deploying 
-                  production-ready applications with modern DevOps practices.
-                </p>
-              ) : (
-                <p className="description description-mobile">
-                  Full-stack developer and UC Berkeley graduate specializing in scalable 
-                  applications and cloud solutions.
-                </p>
-              )}
-            </motion.div>
+            {/* Prioritize description rendering */}
+            {isDesktop ? (
+              <p className="description" data-priority="high">
+                Full-stack developer and UC Berkeley graduate specializing in scalable 
+                applications, cloud architecture, and data-driven solutions. 
+                Experienced in building robust backend systems and deploying 
+                production-ready applications with modern DevOps practices.
+              </p>
+            ) : (
+              <p className="description description-mobile" data-priority="high">
+                Full-stack developer and UC Berkeley graduate specializing in scalable 
+                applications and cloud solutions.
+              </p>
+            )}
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-              transition={{ delay: 0.8, duration: 0.5 }}
+              transition={{ delay: 0.3, duration: 0.3 }}
               className="cta-buttons"
             >
               <a href="#projects" className="primary-btn">View Projects</a>

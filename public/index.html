@@ -59,6 +59,29 @@
         margin-bottom: 3rem;
         line-height: 1.6;
       }
+      .description,
+      .description-mobile {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        color: #e0e0e0;
+        opacity: 1;
+        transform: none;
+        font-size: 0.9rem;
+        max-width: 540px;
+        margin-bottom: 3rem;
+        line-height: 1.6;
+      }
+      .description-mobile {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        max-width: 100%;
+      }
+      @media (max-width: 768px) {
+        .description,
+        .description-mobile {
+          font-size: 0.85rem;
+          margin-bottom: 1.25rem;
+        }
+      }
     </style>
     <link rel="preload" as="image" href="%PUBLIC_URL%/profile.webp">
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
