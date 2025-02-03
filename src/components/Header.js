@@ -104,20 +104,23 @@ function Header() {
 
           <div className={`header-image ${!imageLoaded ? 'loading' : ''}`}>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: imageLoaded ? 1 : 0 }} transition={{ duration: 0.5 }}>
-              <img 
-                ref={imageRef}
-                src={`${process.env.PUBLIC_URL}/profile-fallback.jpg`} 
-                alt="Joseph Heupler" 
-                className="profile-image"
-                loading="eager"
-                width="300"
-                height="300"
-                onLoad={() => setImageLoaded(true)}
-                onError={(e) => {
-                  console.error('Image failed to load:', e);
-                  setImageLoaded(true);
-                }}
-              />
+              <picture>
+                <source srcSet={`${process.env.PUBLIC_URL}/profile.webp`} type="image/webp" />
+                <img 
+                  ref={imageRef}
+                  src={`${process.env.PUBLIC_URL}/profile_standing.png`} 
+                  alt="Joseph Heupler" 
+                  className="profile-image"
+                  loading="eager"
+                  width="300"
+                  height="300"
+                  onLoad={() => setImageLoaded(true)}
+                  onError={(e) => {
+                    console.error('Image failed to load:', e);
+                    setImageLoaded(true);
+                  }}
+                />
+              </picture>
             </motion.div>
           </div>
         </div>
