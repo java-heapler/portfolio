@@ -85,6 +85,9 @@ const hasJsxRuntime = (() => {
   }
 })();
 
+// TODO: Adopt modern script deployment using module/nomodule feature detection to serve modern JavaScript bundles to modern browsers.
+// This change aims to avoid serving legacy JavaScript to modern browsers by delivering smaller JS payloads.
+
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function (webpackEnv) {

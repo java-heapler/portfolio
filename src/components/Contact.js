@@ -11,7 +11,9 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    const subject = `Message from ${formData.email}`;
+    const body = `Name: ${formData.name}\n\nMessage: ${formData.message}`;
+    window.location.href = `mailto:jheupler@berkeley.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setIsSubmitted(true);
   };
 
