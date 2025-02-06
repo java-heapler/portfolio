@@ -233,6 +233,7 @@
   max-height: var(--image-size-desktop);
   border-radius: 8px;
   object-fit: cover;
+  transform: scale(1.2);
   filter: grayscale(20%);
   transition: transform 0.5s ease;
   will-change: transform;
@@ -300,7 +301,7 @@ picture {
 
 /* Hover Effects */
 .profile-image:hover {
-  transform: scale(1.05) rotate(2deg);
+  transform: scale(1.3) rotate(2deg);
 }
 
 .header-text h1 .name:hover {
