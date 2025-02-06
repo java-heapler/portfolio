@@ -233,8 +233,7 @@
   max-height: var(--image-size-desktop);
   border-radius: 8px;
   object-fit: cover;
-  object-position: 50% 0%;
-  transform: scale(1.4);
+  transform: scale(1.2);
   filter: grayscale(20%);
   transition: transform 0.5s ease;
   will-change: transform;
