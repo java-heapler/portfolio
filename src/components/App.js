@@ -8,7 +8,15 @@ import { initGA } from '../utils/analytics';
 
 function App() {
   useEffect(() => {
-    initGA();
+    if (window.requestIdleCallback) {
+      window.requestIdleCallback(() => {
+        initGA();
+      });
+    } else {
+      setTimeout(() => {
+        initGA();
+      }, 2000);
+    }
   }, []);
 
   return (
